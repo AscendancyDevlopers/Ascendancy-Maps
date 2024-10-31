@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="Novum Domitros Intreractive Map" saveDateTime="2024-10-31T22:13:33" saveUser="jschw" saveUserFull="Jono Schwass" version="3.34.11-Prizren">
+<qgis projectname="Novum Domitros Intreractive Map" saveDateTime="2024-10-31T22:19:01" saveUser="jschw" saveUserFull="Jono Schwass" version="3.34.11-Prizren">
   <homePath path=""/>
   <title>Novum Domitros Intreractive Map</title>
   <transaction mode="Disabled"/>
@@ -22,7 +22,7 @@
     <customproperties>
       <Option/>
     </customproperties>
-    <layer-tree-layer legend_exp="" name="Grid" patch_size="-1,-1" expanded="1" legend_split_behavior="0" id="Grid_f639a5df_755a_42b1_886f_3f98130ab08f" source="LineString?crs=EPSG:4326&amp;field=id:long(0,0)&amp;field=left:double(0,0)&amp;field=top:double(0,0)&amp;field=right:double(0,0)&amp;field=bottom:double(0,0)&amp;uid={2273a3bd-17c1-46ef-8070-cac734c2b0a0}" providerKey="memory" checked="Qt::Checked">
+    <layer-tree-layer legend_exp="" name="Grid" patch_size="-1,-1" expanded="1" legend_split_behavior="0" id="Grid_f639a5df_755a_42b1_886f_3f98130ab08f" source="./GridSystem.gpkg|layername=grid" providerKey="ogr" checked="Qt::Checked">
       <customproperties>
         <Option/>
       </customproperties>
@@ -273,10 +273,10 @@
   <mapcanvas name="theMapCanvas" annotationsVisible="1">
     <units>degrees</units>
     <extent>
-      <xmin>-1046.46907907591867115</xmin>
-      <ymin>-3003.16836688538114686</ymin>
-      <xmax>6104.62116140259695385</xmax>
-      <ymax>835.90608074645615488</ymax>
+      <xmin>-935.83958896950480266</xmin>
+      <ymin>-2821.73600311086420334</ymin>
+      <xmax>6215.25065150901082234</xmax>
+      <ymax>1017.33844452097309841</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -4936,7 +4936,7 @@ def my_form_open(dialog, layer, feature):
         <ymax>470.49423872599999186</ymax>
       </wgs84extent>
       <id>Grid_f639a5df_755a_42b1_886f_3f98130ab08f</id>
-      <datasource>memory?geometry=LineString&amp;crs=EPSG:4326&amp;field=id:int8(0,0)&amp;field=left:double(0,0)&amp;field=top:double(0,0)&amp;field=right:double(0,0)&amp;field=bottom:double(0,0)</datasource>
+      <datasource>./GridSystem.gpkg|layername=grid</datasource>
       <keywordList>
         <value></value>
       </keywordList>
@@ -4958,7 +4958,7 @@ def my_form_open(dialog, layer, feature):
         <identifier></identifier>
         <parentidentifier></parentidentifier>
         <language></language>
-        <type></type>
+        <type>dataset</type>
         <title></title>
         <abstract></abstract>
         <contact>
@@ -4976,15 +4976,15 @@ def my_form_open(dialog, layer, feature):
         <encoding></encoding>
         <crs>
           <spatialrefsys nativeFormat="Wkt">
-            <wkt></wkt>
-            <proj4></proj4>
-            <srsid>0</srsid>
-            <srid>0</srid>
-            <authid></authid>
-            <description></description>
-            <projectionacronym></projectionacronym>
-            <ellipsoidacronym></ellipsoidacronym>
-            <geographicflag>false</geographicflag>
+            <wkt>GEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["Horizontal component of 3D system."],AREA["World."],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
+            <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
+            <srsid>3452</srsid>
+            <srid>4326</srid>
+            <authid>EPSG:4326</authid>
+            <description>WGS 84</description>
+            <projectionacronym>longlat</projectionacronym>
+            <ellipsoidacronym>EPSG:7030</ellipsoidacronym>
+            <geographicflag>true</geographicflag>
           </spatialrefsys>
         </crs>
         <extent>
@@ -4997,7 +4997,7 @@ def my_form_open(dialog, layer, feature):
           </temporal>
         </extent>
       </resourceMetadata>
-      <provider encoding="">memory</provider>
+      <provider encoding="UTF-8">ogr</provider>
       <vectorjoins/>
       <layerDependencies/>
       <dataDependencies/>
@@ -5337,6 +5337,13 @@ def my_form_open(dialog, layer, feature):
       <legend showLabelLegend="0" type="default-vector"/>
       <referencedLayers/>
       <fieldConfiguration>
+        <field name="fid" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
         <field name="id" configurationFlags="NoFlag">
           <editWidget type="TextEdit">
             <config>
@@ -5374,13 +5381,15 @@ def my_form_open(dialog, layer, feature):
         </field>
       </fieldConfiguration>
       <aliases>
-        <alias name="" index="0" field="id"/>
-        <alias name="" index="1" field="left"/>
-        <alias name="" index="2" field="top"/>
-        <alias name="" index="3" field="right"/>
-        <alias name="" index="4" field="bottom"/>
+        <alias name="" index="0" field="fid"/>
+        <alias name="" index="1" field="id"/>
+        <alias name="" index="2" field="left"/>
+        <alias name="" index="3" field="top"/>
+        <alias name="" index="4" field="right"/>
+        <alias name="" index="5" field="bottom"/>
       </aliases>
       <splitPolicies>
+        <policy field="fid" policy="Duplicate"/>
         <policy field="id" policy="Duplicate"/>
         <policy field="left" policy="Duplicate"/>
         <policy field="top" policy="Duplicate"/>
@@ -5388,6 +5397,7 @@ def my_form_open(dialog, layer, feature):
         <policy field="bottom" policy="Duplicate"/>
       </splitPolicies>
       <defaults>
+        <default field="fid" applyOnUpdate="0" expression=""/>
         <default field="id" applyOnUpdate="0" expression=""/>
         <default field="left" applyOnUpdate="0" expression=""/>
         <default field="top" applyOnUpdate="0" expression=""/>
@@ -5395,6 +5405,7 @@ def my_form_open(dialog, layer, feature):
         <default field="bottom" applyOnUpdate="0" expression=""/>
       </defaults>
       <constraints>
+        <constraint field="fid" unique_strength="1" notnull_strength="1" constraints="3" exp_strength="0"/>
         <constraint field="id" unique_strength="0" notnull_strength="0" constraints="0" exp_strength="0"/>
         <constraint field="left" unique_strength="0" notnull_strength="0" constraints="0" exp_strength="0"/>
         <constraint field="top" unique_strength="0" notnull_strength="0" constraints="0" exp_strength="0"/>
@@ -5402,6 +5413,7 @@ def my_form_open(dialog, layer, feature):
         <constraint field="bottom" unique_strength="0" notnull_strength="0" constraints="0" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
+        <constraint desc="" field="fid" exp=""/>
         <constraint desc="" field="id" exp=""/>
         <constraint desc="" field="left" exp=""/>
         <constraint desc="" field="top" exp=""/>
@@ -15900,7 +15912,7 @@ def my_form_open(dialog, layer, feature):
       <Layerslist type="QString">Expanded</Layerslist>
       <MatchprojectCRS type="bool">true</MatchprojectCRS>
       <Maxzoomlevel type="QString">26</Maxzoomlevel>
-      <Measuretool type="QString">None</Measuretool>
+      <Measuretool type="QString">Metric</Measuretool>
       <MinifyGeoJSONfiles type="bool">true</MinifyGeoJSONfiles>
       <Minzoomlevel type="QString">15</Minzoomlevel>
       <Precision type="QString">maintain</Precision>
@@ -16025,7 +16037,7 @@ def my_form_open(dialog, layer, feature):
   <Sensors/>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales/>
-    <DefaultViewExtent ymax="856.81011339701581164" ymin="-3024.07239953594080362" xmax="6104.62116140259695385" xmin="-1046.46907907591867115">
+    <DefaultViewExtent ymax="1038.24247717153275516" ymin="-2842.64003576142386009" xmax="6215.25065150901082234" xmin="-935.83958896950480266">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>GEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],CS[ellipsoidal,2],AXIS["geodetic latitude (Lat)",north,ORDER[1],ANGLEUNIT["degree",0.0174532925199433]],AXIS["geodetic longitude (Lon)",east,ORDER[2],ANGLEUNIT["degree",0.0174532925199433]],USAGE[SCOPE["Horizontal component of 3D system."],AREA["World."],BBOX[-90,-180,90,180]],ID["EPSG",4326]]</wkt>
         <proj4>+proj=longlat +datum=WGS84 +no_defs</proj4>
