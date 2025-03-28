@@ -69,7 +69,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:26, minZoom:15
-        })
+        }).fitBounds([[-0.025071914507928946,-0.006580321944776493],[0.00866362046484547,0.057318751758217906]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -116,9 +116,6 @@
         }).addTo(map);
         var bounds_group = new L.featureGroup([]);
         function setBounds() {
-            if (bounds_group.getLayers().length) {
-                map.fitBounds(bounds_group.getBounds());
-            }
         }
         function pop_PrimusIsland_0(feature, layer) {
             var popupContent = '<table>\
