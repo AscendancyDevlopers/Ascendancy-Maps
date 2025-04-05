@@ -66,10 +66,12 @@
         <script src="data/EmergencyCommunicationsCentres_30.js"></script>
         <script src="data/FireStations_31.js"></script>
         <script src="data/Hospitals_32.js"></script>
+        <script src="data/Regions_33.js"></script>
+        <script src="data/Grid_34.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:26, minZoom:15
-        }).fitBounds([[-0.025071914507928946,-0.006580321944776493],[0.00866362046484547,0.057318751758217906]]);
+        }).fitBounds([[-0.02423966964784167,-0.005379808507215718],[0.01078483298695768,0.059860749561081276]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -836,10 +838,6 @@
         map.addLayer(layer_NationalRailNetwork_14);
         function pop_RegionalTrainStations_15(feature, layer) {
             var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">id</th>\
-                        <td>' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
-                    </tr>\
                     <tr>\
                         <th scope="row">Name</th>\
                         <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
@@ -2008,7 +2006,106 @@
         });
         bounds_group.addLayer(layer_Hospitals_32);
         map.addLayer(layer_Hospitals_32);
+        function pop_Regions_33(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Regions_33_0() {
+            return {
+                pane: 'pane_Regions_33',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.519)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,23,0.519)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Regions_33');
+        map.getPane('pane_Regions_33').style.zIndex = 433;
+        map.getPane('pane_Regions_33').style['mix-blend-mode'] = 'normal';
+        var layer_Regions_33 = new L.geoJson(json_Regions_33, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Regions_33',
+            layerName: 'layer_Regions_33',
+            pane: 'pane_Regions_33',
+            onEachFeature: pop_Regions_33,
+            style: style_Regions_33_0,
+        });
+        bounds_group.addLayer(layer_Regions_33);
+        function pop_Grid_34(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['left'] !== null ? autolinker.link(feature.properties['left'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['top'] !== null ? autolinker.link(feature.properties['top'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['right'] !== null ? autolinker.link(feature.properties['right'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['bottom'] !== null ? autolinker.link(feature.properties['bottom'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Grid_34_0() {
+            return {
+                pane: 'pane_Grid_34',
+                opacity: 1,
+                color: 'rgba(0,0,0,0.45098039215686275)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_Grid_34');
+        map.getPane('pane_Grid_34').style.zIndex = 434;
+        map.getPane('pane_Grid_34').style['mix-blend-mode'] = 'normal';
+        var layer_Grid_34 = new L.geoJson(json_Grid_34, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_Grid_34',
+            layerName: 'layer_Grid_34',
+            pane: 'pane_Grid_34',
+            onEachFeature: pop_Grid_34,
+            style: style_Grid_34_0,
+        });
+        bounds_group.addLayer(layer_Grid_34);
         var overlaysTree = [
+        {label: '<b>Map Overlays</b>', selectAllCheckbox: true, children: [
+            {label: '<img src="legend/Grid_34.png" /> Grid', layer: layer_Grid_34},
+            {label: '<img src="legend/Regions_33.png" /> Regions', layer: layer_Regions_33},]},
         {label: '<b>Office of Public Health</b>', selectAllCheckbox: true, children: [
             {label: '<img src="legend/Hospitals_32.png" /> Hospitals', layer: layer_Hospitals_32},]},
         {label: '<b>Office of Emergency Services</b>', selectAllCheckbox: true, children: [
@@ -2112,15 +2209,28 @@
             }  
         });       
         setBounds();
-        resetLabels([layer_MetroAreas_10]);
+        var i = 0;
+        layer_Regions_33.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 17pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Regions_33'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_MetroAreas_10,layer_Regions_33]);
         map.on("zoomend", function(){
-            resetLabels([layer_MetroAreas_10]);
+            resetLabels([layer_MetroAreas_10,layer_Regions_33]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_MetroAreas_10]);
+            resetLabels([layer_MetroAreas_10,layer_Regions_33]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_MetroAreas_10]);
+            resetLabels([layer_MetroAreas_10,layer_Regions_33]);
         });
         </script>
     </body>
