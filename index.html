@@ -71,7 +71,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:26, minZoom:15
-        }).fitBounds([[-0.027707142438836367,-0.002158882396619016],[0.006880336900441215,0.062267627770899905]]);
+        }).fitBounds([[-0.02746354834084102,-0.00799219756580138],[0.008831028547291814,0.05961414344140908]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -240,23 +240,23 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Ownership</th>\
-                        <td>' + (feature.properties['Ownership'] !== null ? autolinker.link(feature.properties['Ownership'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Ownership'] !== null ? autolinker.link(String(feature.properties['Ownership']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Protection</th>\
-                        <td>' + (feature.properties['Protection'] !== null ? autolinker.link(feature.properties['Protection'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Protection'] !== null ? autolinker.link(String(feature.properties['Protection']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Fishing</th>\
-                        <td>' + (feature.properties['Fishing'] !== null ? autolinker.link(feature.properties['Fishing'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Fishing'] !== null ? autolinker.link(String(feature.properties['Fishing']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -299,7 +299,7 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -342,27 +342,27 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Ownership</th>\
-                        <td>' + (feature.properties['Ownership'] !== null ? autolinker.link(feature.properties['Ownership'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Ownership'] !== null ? autolinker.link(String(feature.properties['Ownership']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Fire Risk</th>\
-                        <td>' + (feature.properties['Fire Risk'] !== null ? autolinker.link(feature.properties['Fire Risk'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Fire Risk'] !== null ? autolinker.link(String(feature.properties['Fire Risk']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Protection</th>\
-                        <td>' + (feature.properties['Protection'] !== null ? autolinker.link(feature.properties['Protection'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Protection'] !== null ? autolinker.link(String(feature.properties['Protection']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Hunting</th>\
-                        <td>' + (feature.properties['Hunting'] !== null ? autolinker.link(feature.properties['Hunting'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Hunting'] !== null ? autolinker.link(String(feature.properties['Hunting']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -405,27 +405,27 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Ownership</th>\
-                        <td>' + (feature.properties['Ownership'] !== null ? autolinker.link(feature.properties['Ownership'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Ownership'] !== null ? autolinker.link(String(feature.properties['Ownership']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Fire Risk</th>\
-                        <td>' + (feature.properties['Fire Risk'] !== null ? autolinker.link(feature.properties['Fire Risk'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Fire Risk'] !== null ? autolinker.link(String(feature.properties['Fire Risk']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Protection</th>\
-                        <td>' + (feature.properties['Protection'] !== null ? autolinker.link(feature.properties['Protection'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Protection'] !== null ? autolinker.link(String(feature.properties['Protection']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Hunting</th>\
-                        <td>' + (feature.properties['Hunting'] !== null ? autolinker.link(feature.properties['Hunting'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Hunting'] !== null ? autolinker.link(String(feature.properties['Hunting']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -468,7 +468,7 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -511,7 +511,7 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -554,19 +554,19 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Zone Type</th>\
-                        <td>' + (feature.properties['Zone Type'] !== null ? autolinker.link(feature.properties['Zone Type'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Zone Type'] !== null ? autolinker.link(String(feature.properties['Zone Type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Speciality</th>\
-                        <td>' + (feature.properties['Speciality'] !== null ? autolinker.link(feature.properties['Speciality'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Speciality'] !== null ? autolinker.link(String(feature.properties['Speciality']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -609,15 +609,15 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Population</th>\
-                        <td>' + (feature.properties['Population'] !== null ? autolinker.link(feature.properties['Population'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Population'] !== null ? autolinker.link(String(feature.properties['Population']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -660,11 +660,11 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -705,11 +705,11 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -750,11 +750,11 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -795,11 +795,11 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -840,11 +840,11 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -890,23 +890,23 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td class="visible-with-data" id="Name">' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Name">' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Code</th>\
-                        <td class="visible-with-data" id="Code">' + (feature.properties['Code'] !== null ? autolinker.link(feature.properties['Code'].toLocaleString()) : '') + '</td>\
+                        <td class="visible-with-data" id="Code">' + (feature.properties['Code'] !== null ? autolinker.link(String(feature.properties['Code']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Runways</th>\
-                        <td>' + (feature.properties['Runways'] !== null ? autolinker.link(feature.properties['Runways'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Runways'] !== null ? autolinker.link(String(feature.properties['Runways']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Terminals</th>\
-                        <td>' + (feature.properties['Terminals'] !== null ? autolinker.link(feature.properties['Terminals'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Terminals'] !== null ? autolinker.link(String(feature.properties['Terminals']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Owner</th>\
-                        <td>' + (feature.properties['Owner'] !== null ? autolinker.link(feature.properties['Owner'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Owner'] !== null ? autolinker.link(String(feature.properties['Owner']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -952,11 +952,11 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Owner</th>\
-                        <td>' + (feature.properties['Owner'] !== null ? autolinker.link(feature.properties['Owner'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Owner'] !== null ? autolinker.link(String(feature.properties['Owner']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1002,11 +1002,11 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1047,15 +1047,15 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Type</th>\
-                        <td>' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Type'] !== null ? autolinker.link(String(feature.properties['Type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1098,7 +1098,7 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1144,19 +1144,19 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Owner</th>\
-                        <td>' + (feature.properties['Owner'] !== null ? autolinker.link(feature.properties['Owner'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Owner'] !== null ? autolinker.link(String(feature.properties['Owner']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Type</th>\
-                        <td>' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Type'] !== null ? autolinker.link(String(feature.properties['Type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Role</th>\
-                        <td>' + (feature.properties['Role'] !== null ? autolinker.link(feature.properties['Role'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Role'] !== null ? autolinker.link(String(feature.properties['Role']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1202,11 +1202,11 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1252,15 +1252,15 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Owner</th>\
-                        <td>' + (feature.properties['Owner'] !== null ? autolinker.link(feature.properties['Owner'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Owner'] !== null ? autolinker.link(String(feature.properties['Owner']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Type</th>\
-                        <td>' + (feature.properties['Type'] !== null ? autolinker.link(feature.properties['Type'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Type'] !== null ? autolinker.link(String(feature.properties['Type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1306,11 +1306,11 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1353,19 +1353,19 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">SecLevel</th>\
-                        <td>' + (feature.properties['SecLevel'] !== null ? autolinker.link(feature.properties['SecLevel'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['SecLevel'] !== null ? autolinker.link(String(feature.properties['SecLevel']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">PubAccess</th>\
-                        <td>' + (feature.properties['PubAccess'] !== null ? autolinker.link(feature.properties['PubAccess'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['PubAccess'] !== null ? autolinker.link(String(feature.properties['PubAccess']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1411,15 +1411,15 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Purpose</th>\
-                        <td>' + (feature.properties['Purpose'] !== null ? autolinker.link(feature.properties['Purpose'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Purpose'] !== null ? autolinker.link(String(feature.properties['Purpose']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1462,15 +1462,15 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Purpose</th>\
-                        <td>' + (feature.properties['Purpose'] !== null ? autolinker.link(feature.properties['Purpose'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Purpose'] !== null ? autolinker.link(String(feature.properties['Purpose']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1516,91 +1516,91 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Patrol</th>\
-                        <td>' + (feature.properties['Patrol'] !== null ? autolinker.link(feature.properties['Patrol'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Patrol'] !== null ? autolinker.link(String(feature.properties['Patrol']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">InvestUnit</th>\
-                        <td>' + (feature.properties['InvestUnit'] !== null ? autolinker.link(feature.properties['InvestUnit'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['InvestUnit'] !== null ? autolinker.link(String(feature.properties['InvestUnit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Homicide</th>\
-                        <td>' + (feature.properties['Homicide'] !== null ? autolinker.link(feature.properties['Homicide'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Homicide'] !== null ? autolinker.link(String(feature.properties['Homicide']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">AOS</th>\
-                        <td>' + (feature.properties['AOS'] !== null ? autolinker.link(feature.properties['AOS'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['AOS'] !== null ? autolinker.link(String(feature.properties['AOS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">SpecTacU</th>\
-                        <td>' + (feature.properties['SpecTacU'] !== null ? autolinker.link(feature.properties['SpecTacU'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['SpecTacU'] !== null ? autolinker.link(String(feature.properties['SpecTacU']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">DrugEnf</th>\
-                        <td>' + (feature.properties['DrugEnf'] !== null ? autolinker.link(feature.properties['DrugEnf'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['DrugEnf'] !== null ? autolinker.link(String(feature.properties['DrugEnf']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">CyberCrm</th>\
-                        <td>' + (feature.properties['CyberCrm'] !== null ? autolinker.link(feature.properties['CyberCrm'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['CyberCrm'] !== null ? autolinker.link(String(feature.properties['CyberCrm']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Traffic</th>\
-                        <td>' + (feature.properties['Traffic'] !== null ? autolinker.link(feature.properties['Traffic'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Traffic'] !== null ? autolinker.link(String(feature.properties['Traffic']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Forensics</th>\
-                        <td>' + (feature.properties['Forensics'] !== null ? autolinker.link(feature.properties['Forensics'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Forensics'] !== null ? autolinker.link(String(feature.properties['Forensics']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">K9</th>\
-                        <td>' + (feature.properties['K9'] !== null ? autolinker.link(feature.properties['K9'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['K9'] !== null ? autolinker.link(String(feature.properties['K9']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">DVChild</th>\
-                        <td>' + (feature.properties['DVChild'] !== null ? autolinker.link(feature.properties['DVChild'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['DVChild'] !== null ? autolinker.link(String(feature.properties['DVChild']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">FinCrime</th>\
-                        <td>' + (feature.properties['FinCrime'] !== null ? autolinker.link(feature.properties['FinCrime'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['FinCrime'] !== null ? autolinker.link(String(feature.properties['FinCrime']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Youth</th>\
-                        <td>' + (feature.properties['Youth'] !== null ? autolinker.link(feature.properties['Youth'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Youth'] !== null ? autolinker.link(String(feature.properties['Youth']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">IntelUnit</th>\
-                        <td>' + (feature.properties['IntelUnit'] !== null ? autolinker.link(feature.properties['IntelUnit'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['IntelUnit'] !== null ? autolinker.link(String(feature.properties['IntelUnit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">GangUnit</th>\
-                        <td>' + (feature.properties['GangUnit'] !== null ? autolinker.link(feature.properties['GangUnit'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['GangUnit'] !== null ? autolinker.link(String(feature.properties['GangUnit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">CrisisNeg</th>\
-                        <td>' + (feature.properties['CrisisNeg'] !== null ? autolinker.link(feature.properties['CrisisNeg'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['CrisisNeg'] !== null ? autolinker.link(String(feature.properties['CrisisNeg']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">SpecVict</th>\
-                        <td>' + (feature.properties['SpecVict'] !== null ? autolinker.link(feature.properties['SpecVict'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['SpecVict'] !== null ? autolinker.link(String(feature.properties['SpecVict']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">ViceUnit</th>\
-                        <td>' + (feature.properties['ViceUnit'] !== null ? autolinker.link(feature.properties['ViceUnit'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['ViceUnit'] !== null ? autolinker.link(String(feature.properties['ViceUnit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">OrgCrime</th>\
-                        <td>' + (feature.properties['OrgCrime'] !== null ? autolinker.link(feature.properties['OrgCrime'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['OrgCrime'] !== null ? autolinker.link(String(feature.properties['OrgCrime']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">CntrTerr</th>\
-                        <td>' + (feature.properties['CntrTerr'] !== null ? autolinker.link(feature.properties['CntrTerr'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['CntrTerr'] !== null ? autolinker.link(String(feature.properties['CntrTerr']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1646,31 +1646,31 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Analysts</th>\
-                        <td>' + (feature.properties['Analysts'] !== null ? autolinker.link(feature.properties['Analysts'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Analysts'] !== null ? autolinker.link(String(feature.properties['Analysts']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">OpsTeam</th>\
-                        <td>' + (feature.properties['OpsTeam'] !== null ? autolinker.link(feature.properties['OpsTeam'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['OpsTeam'] !== null ? autolinker.link(String(feature.properties['OpsTeam']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">SurvUnit</th>\
-                        <td>' + (feature.properties['SurvUnit'] !== null ? autolinker.link(feature.properties['SurvUnit'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['SurvUnit'] !== null ? autolinker.link(String(feature.properties['SurvUnit']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">CountIntel</th>\
-                        <td>' + (feature.properties['CountIntel'] !== null ? autolinker.link(feature.properties['CountIntel'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['CountIntel'] !== null ? autolinker.link(String(feature.properties['CountIntel']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">CyberSec</th>\
-                        <td>' + (feature.properties['CyberSec'] !== null ? autolinker.link(feature.properties['CyberSec'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['CyberSec'] !== null ? autolinker.link(String(feature.properties['CyberSec']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1716,23 +1716,23 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Fire</th>\
-                        <td>' + (feature.properties['Fire'] !== null ? autolinker.link(feature.properties['Fire'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Fire'] !== null ? autolinker.link(String(feature.properties['Fire']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">EMS</th>\
-                        <td>' + (feature.properties['EMS'] !== null ? autolinker.link(feature.properties['EMS'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['EMS'] !== null ? autolinker.link(String(feature.properties['EMS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Police</th>\
-                        <td>' + (feature.properties['Police'] !== null ? autolinker.link(feature.properties['Police'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Police'] !== null ? autolinker.link(String(feature.properties['Police']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1778,63 +1778,63 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Authority</th>\
-                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(feature.properties['Authority'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">EngineCo</th>\
-                        <td>' + (feature.properties['EngineCo'] !== null ? autolinker.link(feature.properties['EngineCo'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['EngineCo'] !== null ? autolinker.link(String(feature.properties['EngineCo']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">LadderCo</th>\
-                        <td>' + (feature.properties['LadderCo'] !== null ? autolinker.link(feature.properties['LadderCo'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['LadderCo'] !== null ? autolinker.link(String(feature.properties['LadderCo']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Resuce</th>\
-                        <td>' + (feature.properties['Resuce'] !== null ? autolinker.link(feature.properties['Resuce'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Resuce'] !== null ? autolinker.link(String(feature.properties['Resuce']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Hazmat</th>\
-                        <td>' + (feature.properties['Hazmat'] !== null ? autolinker.link(feature.properties['Hazmat'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Hazmat'] !== null ? autolinker.link(String(feature.properties['Hazmat']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">FireInv</th>\
-                        <td>' + (feature.properties['FireInv'] !== null ? autolinker.link(feature.properties['FireInv'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['FireInv'] !== null ? autolinker.link(String(feature.properties['FireInv']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">EMS</th>\
-                        <td>' + (feature.properties['EMS'] !== null ? autolinker.link(feature.properties['EMS'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['EMS'] !== null ? autolinker.link(String(feature.properties['EMS']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">WildFire</th>\
-                        <td>' + (feature.properties['WildFire'] !== null ? autolinker.link(feature.properties['WildFire'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['WildFire'] !== null ? autolinker.link(String(feature.properties['WildFire']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">USAR</th>\
-                        <td>' + (feature.properties['USAR'] !== null ? autolinker.link(feature.properties['USAR'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['USAR'] !== null ? autolinker.link(String(feature.properties['USAR']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">FirePrev</th>\
-                        <td>' + (feature.properties['FirePrev'] !== null ? autolinker.link(feature.properties['FirePrev'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['FirePrev'] !== null ? autolinker.link(String(feature.properties['FirePrev']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">AirSuppt</th>\
-                        <td>' + (feature.properties['AirSuppt'] !== null ? autolinker.link(feature.properties['AirSuppt'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['AirSuppt'] !== null ? autolinker.link(String(feature.properties['AirSuppt']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">MarineFF</th>\
-                        <td>' + (feature.properties['MarineFF'] !== null ? autolinker.link(feature.properties['MarineFF'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['MarineFF'] !== null ? autolinker.link(String(feature.properties['MarineFF']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">DiveTeam</th>\
-                        <td>' + (feature.properties['DiveTeam'] !== null ? autolinker.link(feature.properties['DiveTeam'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['DiveTeam'] !== null ? autolinker.link(String(feature.properties['DiveTeam']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">AirRescue</th>\
-                        <td>' + (feature.properties['AirRescue'] !== null ? autolinker.link(feature.properties['AirRescue'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['AirRescue'] !== null ? autolinker.link(String(feature.properties['AirRescue']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1880,91 +1880,91 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">EmergDept</th>\
-                        <td>' + (feature.properties['EmergDept'] !== null ? autolinker.link(feature.properties['EmergDept'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['EmergDept'] !== null ? autolinker.link(String(feature.properties['EmergDept']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">SurgDept</th>\
-                        <td>' + (feature.properties['SurgDept'] !== null ? autolinker.link(feature.properties['SurgDept'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['SurgDept'] !== null ? autolinker.link(String(feature.properties['SurgDept']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Maternity</th>\
-                        <td>' + (feature.properties['Maternity'] !== null ? autolinker.link(feature.properties['Maternity'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Maternity'] !== null ? autolinker.link(String(feature.properties['Maternity']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Pediatric</th>\
-                        <td>' + (feature.properties['Pediatric'] !== null ? autolinker.link(feature.properties['Pediatric'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Pediatric'] !== null ? autolinker.link(String(feature.properties['Pediatric']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">RadDept</th>\
-                        <td>' + (feature.properties['RadDept'] !== null ? autolinker.link(feature.properties['RadDept'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['RadDept'] !== null ? autolinker.link(String(feature.properties['RadDept']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">LabService</th>\
-                        <td>' + (feature.properties['LabService'] !== null ? autolinker.link(feature.properties['LabService'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['LabService'] !== null ? autolinker.link(String(feature.properties['LabService']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Pharmacy</th>\
-                        <td>' + (feature.properties['Pharmacy'] !== null ? autolinker.link(feature.properties['Pharmacy'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Pharmacy'] !== null ? autolinker.link(String(feature.properties['Pharmacy']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">OutPtSvc</th>\
-                        <td>' + (feature.properties['OutPtSvc'] !== null ? autolinker.link(feature.properties['OutPtSvc'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['OutPtSvc'] !== null ? autolinker.link(String(feature.properties['OutPtSvc']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Rehab</th>\
-                        <td>' + (feature.properties['Rehab'] !== null ? autolinker.link(feature.properties['Rehab'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Rehab'] !== null ? autolinker.link(String(feature.properties['Rehab']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">MentalH</th>\
-                        <td>' + (feature.properties['MentalH'] !== null ? autolinker.link(feature.properties['MentalH'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['MentalH'] !== null ? autolinker.link(String(feature.properties['MentalH']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">AdminOff</th>\
-                        <td>' + (feature.properties['AdminOff'] !== null ? autolinker.link(feature.properties['AdminOff'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['AdminOff'] !== null ? autolinker.link(String(feature.properties['AdminOff']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Neurology</th>\
-                        <td>' + (feature.properties['Neurology'] !== null ? autolinker.link(feature.properties['Neurology'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Neurology'] !== null ? autolinker.link(String(feature.properties['Neurology']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">GenHosp</th>\
-                        <td>' + (feature.properties['GenHosp'] !== null ? autolinker.link(feature.properties['GenHosp'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['GenHosp'] !== null ? autolinker.link(String(feature.properties['GenHosp']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">InfectDis</th>\
-                        <td>' + (feature.properties['InfectDis'] !== null ? autolinker.link(feature.properties['InfectDis'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['InfectDis'] !== null ? autolinker.link(String(feature.properties['InfectDis']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Derm</th>\
-                        <td>' + (feature.properties['Derm'] !== null ? autolinker.link(feature.properties['Derm'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Derm'] !== null ? autolinker.link(String(feature.properties['Derm']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Gastro</th>\
-                        <td>' + (feature.properties['Gastro'] !== null ? autolinker.link(feature.properties['Gastro'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Gastro'] !== null ? autolinker.link(String(feature.properties['Gastro']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Endocrin</th>\
-                        <td>' + (feature.properties['Endocrin'] !== null ? autolinker.link(feature.properties['Endocrin'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Endocrin'] !== null ? autolinker.link(String(feature.properties['Endocrin']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Cardio</th>\
-                        <td>' + (feature.properties['Cardio'] !== null ? autolinker.link(feature.properties['Cardio'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Cardio'] !== null ? autolinker.link(String(feature.properties['Cardio']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Oncology</th>\
-                        <td>' + (feature.properties['Oncology'] !== null ? autolinker.link(feature.properties['Oncology'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Oncology'] !== null ? autolinker.link(String(feature.properties['Oncology']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">Geriatric</th>\
-                        <td>' + (feature.properties['Geriatric'] !== null ? autolinker.link(feature.properties['Geriatric'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Geriatric'] !== null ? autolinker.link(String(feature.properties['Geriatric']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
                         <th scope="row">GenPract</th>\
-                        <td>' + (feature.properties['GenPract'] !== null ? autolinker.link(feature.properties['GenPract'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['GenPract'] !== null ? autolinker.link(String(feature.properties['GenPract']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -2010,7 +2010,7 @@
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(feature.properties['Name'].toLocaleString()) : '') + '</td>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -2051,22 +2051,22 @@
         function pop_Grid_34(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(feature.properties['id'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['left'] !== null ? autolinker.link(feature.properties['left'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['left'] !== null ? autolinker.link(String(feature.properties['left']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['top'] !== null ? autolinker.link(feature.properties['top'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['top'] !== null ? autolinker.link(String(feature.properties['top']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['right'] !== null ? autolinker.link(feature.properties['right'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['right'] !== null ? autolinker.link(String(feature.properties['right']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['bottom'] !== null ? autolinker.link(feature.properties['bottom'].toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['bottom'] !== null ? autolinker.link(String(feature.properties['bottom']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -2103,31 +2103,31 @@
         });
         bounds_group.addLayer(layer_Grid_34);
         var overlaysTree = [
-        {label: '<b>Map Overlays</b>', selectAllCheckbox: true, children: [
+        {label: '<b>Map Overlays</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/Grid_34.png" /> Grid', layer: layer_Grid_34},
             {label: '<img src="legend/Regions_33.png" /> Regions', layer: layer_Regions_33},]},
-        {label: '<b>Office of Public Health</b>', selectAllCheckbox: true, children: [
+        {label: '<b>Office of Public Health</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/Hospitals_32.png" /> Hospitals', layer: layer_Hospitals_32},]},
-        {label: '<b>Office of Emergency Services</b>', selectAllCheckbox: true, children: [
+        {label: '<b>Office of Emergency Services</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/FireStations_31.png" /> Fire Stations', layer: layer_FireStations_31},
             {label: '<img src="legend/EmergencyCommunicationsCentres_30.png" /> Emergency Communications Centres', layer: layer_EmergencyCommunicationsCentres_30},]},
-        {label: '<b>Office of Homeland Security</b>', selectAllCheckbox: true, children: [
+        {label: '<b>Office of Homeland Security</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/IntelligenceAgency_29.png" /> Intelligence Agency', layer: layer_IntelligenceAgency_29},
             {label: '<img src="legend/PoliceStations_28.png" /> Police Stations', layer: layer_PoliceStations_28},]},
-        {label: '<b>Department of Defence</b>', selectAllCheckbox: true, children: [
+        {label: '<b>Department of Defence</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/MilitarySites_27.png" /> Military Sites', layer: layer_MilitarySites_27},
             {label: '<img src="legend/DefenceArea_26.png" /> Defence Area', layer: layer_DefenceArea_26},]},
-        {label: '<b>Government/Parliament Precinct</b>', selectAllCheckbox: true, children: [
+        {label: '<b>Government/Parliament Precinct</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/GovernmentParliamentBuildings_25.png" /> Government & Parliament Buildings', layer: layer_GovernmentParliamentBuildings_25},
             {label: '<img src="legend/GovernmentParliamentPrecincts_24.png" /> Government & Parliament Precincts', layer: layer_GovernmentParliamentPrecincts_24},]},
-        {label: '<b>Utilities</b>', selectAllCheckbox: true, children: [
+        {label: '<b>Utilities</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/Telecommunications_23.png" /> Telecommunications', layer: layer_Telecommunications_23},
             {label: '<img src="legend/WaterWaste_22.png" /> Water & Waste', layer: layer_WaterWaste_22},
             {label: '<img src="legend/Power_21.png" /> Power', layer: layer_Power_21},]},
-        {label: '<b>Office of Local Government</b>', selectAllCheckbox: true, children: [
+        {label: '<b>Office of Local Government</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/CityRegionalCouncils_20.png" /> City & Regional Councils', layer: layer_CityRegionalCouncils_20},
             {label: '<img src="legend/ParksRecreation_19.png" /> Parks & Recreation', layer: layer_ParksRecreation_19},]},
-        {label: '<b>Transportation</b>', selectAllCheckbox: true, children: [
+        {label: '<b>Transportation</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/NationalBridges_18.png" /> National Bridges', layer: layer_NationalBridges_18},
             {label: '<img src="legend/Port_17.png" /> Port', layer: layer_Port_17},
             {label: '<img src="legend/AirportSkydocks_16.png" /> Airport & Skydocks', layer: layer_AirportSkydocks_16},
@@ -2136,7 +2136,7 @@
             {label: '<img src="legend/RegionalRailNetwork_13.png" /> Regional Rail Network', layer: layer_RegionalRailNetwork_13},
             {label: '<img src="legend/NationalHighways_12.png" /> National Highways', layer: layer_NationalHighways_12},
             {label: '<img src="legend/RegionalHighways_11.png" /> Regional Highways', layer: layer_RegionalHighways_11},]},
-        {label: '<b>Geography</b>', selectAllCheckbox: true, children: [
+        {label: '<b>Geography</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/MetroAreas_10.png" /> Metro Areas', layer: layer_MetroAreas_10},
             {label: '<img src="legend/UrbanAreas_9.png" /> Urban Areas', layer: layer_UrbanAreas_9},
             {label: '<img src="legend/Mountains_8.png" /> Mountains ', layer: layer_Mountains_8},
