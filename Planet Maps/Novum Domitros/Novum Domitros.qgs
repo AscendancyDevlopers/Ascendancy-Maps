@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis version="3.34.11-Prizren" saveUserFull="GGPC" saveUser="GGPC" saveDateTime="2025-08-25T15:15:20" projectname="Novum Domitros Interactive Map">
+<qgis version="3.34.11-Prizren" saveUserFull="GGPC" saveUser="GGPC" saveDateTime="2025-08-25T15:23:53" projectname="Novum Domitros Interactive Map">
   <homePath path=""/>
   <title>Novum Domitros Interactive Map</title>
   <transaction mode="Disabled"/>
@@ -53,7 +53,7 @@
           </Option>
         </customproperties>
       </layer-tree-layer>
-      <layer-tree-layer id="Electorates_0c6d4ff1_6f6c_4185_ac58_a5b524780f52" legend_split_behavior="0" name="Regions" legend_exp="" providerKey="ogr" checked="Qt::Checked" patch_size="-1,-1" expanded="1" source="./Electorates.shp">
+      <layer-tree-layer id="Electorates_0c6d4ff1_6f6c_4185_ac58_a5b524780f52" legend_split_behavior="0" name="Regions" legend_exp="" providerKey="ogr" checked="Qt::Unchecked" patch_size="-1,-1" expanded="1" source="./Electorates.shp">
         <customproperties>
           <Option/>
         </customproperties>
@@ -357,10 +357,10 @@
   <mapcanvas name="theMapCanvas" annotationsVisible="1">
     <units>meters</units>
     <extent>
-      <xmin>2851.14969805483087839</xmin>
-      <ymin>-1491.31709715434908503</ymin>
-      <xmax>3955.33270595866088115</xmax>
-      <ymax>-892.07916557130965884</ymax>
+      <xmin>2681.09294690125943816</xmin>
+      <ymin>-1655.57155309378094898</ymin>
+      <xmax>4078.57456626956673063</xmax>
+      <ymax>-897.16104592923466043</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -404,9 +404,9 @@
           <legendlayerfile layerid="Electorates_c9f74b09_8976_451f_bff1_64dc2879585b" visible="0" isInOverview="0"/>
         </filegroup>
       </legendlayer>
-      <legendlayer open="true" drawingOrder="-1" name="Regions" showFeatureCount="0" checked="Qt::Checked">
+      <legendlayer open="true" drawingOrder="-1" name="Regions" showFeatureCount="0" checked="Qt::Unchecked">
         <filegroup open="true" hidden="false">
-          <legendlayerfile layerid="Electorates_0c6d4ff1_6f6c_4185_ac58_a5b524780f52" visible="1" isInOverview="0"/>
+          <legendlayerfile layerid="Electorates_0c6d4ff1_6f6c_4185_ac58_a5b524780f52" visible="0" isInOverview="0"/>
         </filegroup>
       </legendlayer>
     </legendgroup>
@@ -21700,7 +21700,7 @@ def my_form_open(dialog, layer, feature):
   <Sensors/>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales/>
-    <DefaultViewExtent xmin="2835.72763150751416106" ymin="-1491.31709715434908503" xmax="3970.75477250597759848" ymax="-892.07916557130965884">
+    <DefaultViewExtent xmin="2681.09294690125943816" ymin="-1797.8146649474433616" xmax="4078.57456626956673063" ymax="-754.91793407557224782">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Web mapping and visualisation."],AREA["World between 85.06°S and 85.06°N."],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
         <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
@@ -21778,7 +21778,7 @@ def my_form_open(dialog, layer, feature):
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings destinationLayerProvider="ogr" autoAddTrackVertices="0" destinationLayerName="Warnings &amp; Emergencies" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayerSource="C:/Users/GGPC/OneDrive/Documents/GitHub/Ascendancy-Maps/Planet Maps/Novum Domitros/Warnings &amp; Emergencies.shp" destinationLayer="Warnings___Emergencies_5d1d6271_88b9_4ee5_ac49_b23af86c6aec">
+  <ProjectGpsSettings destinationLayerProvider="ogr" autoAddTrackVertices="0" destinationLayerName="Urban Areas" autoCommitFeatures="0" destinationFollowsActiveLayer="1" destinationLayerSource="C:/Users/GGPC/OneDrive/Documents/GitHub/Ascendancy-Maps/Planet Maps/Novum Domitros/Layers/Urban Areas.shp" destinationLayer="Urban_Areas_0847e23f_4f9f_4c01_bb89_6647d5445933">
     <timeStampFields/>
   </ProjectGpsSettings>
 </qgis>
