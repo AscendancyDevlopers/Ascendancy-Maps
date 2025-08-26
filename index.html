@@ -63,16 +63,18 @@
         <script src="data/MilitarySites_27.js"></script>
         <script src="data/PoliceStations_28.js"></script>
         <script src="data/IntelligenceAgency_29.js"></script>
-        <script src="data/EmergencyCommunicationsCentres_30.js"></script>
-        <script src="data/FireStations_31.js"></script>
-        <script src="data/Hospitals_32.js"></script>
-        <script src="data/Grid_33.js"></script>
-        <script src="data/ImpactZone_34.js"></script>
-        <script src="data/WarningsEmergencies_35.js"></script>
+        <script src="data/PortusDisasterRefugeeCamp_30.js"></script>
+        <script src="data/EmergencyCommunicationsCentres_31.js"></script>
+        <script src="data/FireStations_32.js"></script>
+        <script src="data/Hospitals_33.js"></script>
+        <script src="data/Regions_34.js"></script>
+        <script src="data/Grid_35.js"></script>
+        <script src="data/ImpactZone_36.js"></script>
+        <script src="data/WarningsEmergencies_37.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:26, minZoom:15
-        }).fitBounds([[-0.020400353659830367,0.0039098559367372185],[0.004582314520258618,0.03738663188219455]]);
+        }).fitBounds([[-0.019449264465153323,-0.0007231318210605656],[0.003544331729084672,0.042107313315294666]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -1709,7 +1711,52 @@
         });
         bounds_group.addLayer(layer_IntelligenceAgency_29);
         map.addLayer(layer_IntelligenceAgency_29);
-        function pop_EmergencyCommunicationsCentres_30(feature, layer) {
+        function pop_PortusDisasterRefugeeCamp_30(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_PortusDisasterRefugeeCamp_30_0() {
+            return {
+                pane: 'pane_PortusDisasterRefugeeCamp_30',
+        rotationAngle: 0.0,
+        rotationOrigin: 'center center',
+        icon: L.icon({
+            iconUrl: 'markers/PortusDisasterRefugeeCamp_30.svg',
+            iconSize: [28.88000000000001, 28.88000000000001]
+        }),
+                interactive: true,
+            }
+        }
+        map.createPane('pane_PortusDisasterRefugeeCamp_30');
+        map.getPane('pane_PortusDisasterRefugeeCamp_30').style.zIndex = 430;
+        map.getPane('pane_PortusDisasterRefugeeCamp_30').style['mix-blend-mode'] = 'normal';
+        var layer_PortusDisasterRefugeeCamp_30 = new L.geoJson(json_PortusDisasterRefugeeCamp_30, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_PortusDisasterRefugeeCamp_30',
+            layerName: 'layer_PortusDisasterRefugeeCamp_30',
+            pane: 'pane_PortusDisasterRefugeeCamp_30',
+            onEachFeature: pop_PortusDisasterRefugeeCamp_30,
+            pointToLayer: function (feature, latlng) {
+                var context = {
+                    feature: feature,
+                    variables: {}
+                };
+                return L.marker(latlng, style_PortusDisasterRefugeeCamp_30_0(feature));
+            },
+        });
+        bounds_group.addLayer(layer_PortusDisasterRefugeeCamp_30);
+        map.addLayer(layer_PortusDisasterRefugeeCamp_30);
+        function pop_EmergencyCommunicationsCentres_31(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
@@ -1739,39 +1786,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_EmergencyCommunicationsCentres_30_0() {
+        function style_EmergencyCommunicationsCentres_31_0() {
             return {
-                pane: 'pane_EmergencyCommunicationsCentres_30',
+                pane: 'pane_EmergencyCommunicationsCentres_31',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/EmergencyCommunicationsCentres_30.svg',
+            iconUrl: 'markers/EmergencyCommunicationsCentres_31.svg',
             iconSize: [72.96, 72.96]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_EmergencyCommunicationsCentres_30');
-        map.getPane('pane_EmergencyCommunicationsCentres_30').style.zIndex = 430;
-        map.getPane('pane_EmergencyCommunicationsCentres_30').style['mix-blend-mode'] = 'normal';
-        var layer_EmergencyCommunicationsCentres_30 = new L.geoJson(json_EmergencyCommunicationsCentres_30, {
+        map.createPane('pane_EmergencyCommunicationsCentres_31');
+        map.getPane('pane_EmergencyCommunicationsCentres_31').style.zIndex = 431;
+        map.getPane('pane_EmergencyCommunicationsCentres_31').style['mix-blend-mode'] = 'normal';
+        var layer_EmergencyCommunicationsCentres_31 = new L.geoJson(json_EmergencyCommunicationsCentres_31, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_EmergencyCommunicationsCentres_30',
-            layerName: 'layer_EmergencyCommunicationsCentres_30',
-            pane: 'pane_EmergencyCommunicationsCentres_30',
-            onEachFeature: pop_EmergencyCommunicationsCentres_30,
+            dataVar: 'json_EmergencyCommunicationsCentres_31',
+            layerName: 'layer_EmergencyCommunicationsCentres_31',
+            pane: 'pane_EmergencyCommunicationsCentres_31',
+            onEachFeature: pop_EmergencyCommunicationsCentres_31,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_EmergencyCommunicationsCentres_30_0(feature));
+                return L.marker(latlng, style_EmergencyCommunicationsCentres_31_0(feature));
             },
         });
-        bounds_group.addLayer(layer_EmergencyCommunicationsCentres_30);
-        map.addLayer(layer_EmergencyCommunicationsCentres_30);
-        function pop_FireStations_31(feature, layer) {
+        bounds_group.addLayer(layer_EmergencyCommunicationsCentres_31);
+        map.addLayer(layer_EmergencyCommunicationsCentres_31);
+        function pop_FireStations_32(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
@@ -1841,39 +1888,39 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_FireStations_31_0() {
+        function style_FireStations_32_0() {
             return {
-                pane: 'pane_FireStations_31',
+                pane: 'pane_FireStations_32',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/FireStations_31.svg',
+            iconUrl: 'markers/FireStations_32.svg',
             iconSize: [72.96, 72.96]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_FireStations_31');
-        map.getPane('pane_FireStations_31').style.zIndex = 431;
-        map.getPane('pane_FireStations_31').style['mix-blend-mode'] = 'normal';
-        var layer_FireStations_31 = new L.geoJson(json_FireStations_31, {
+        map.createPane('pane_FireStations_32');
+        map.getPane('pane_FireStations_32').style.zIndex = 432;
+        map.getPane('pane_FireStations_32').style['mix-blend-mode'] = 'normal';
+        var layer_FireStations_32 = new L.geoJson(json_FireStations_32, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FireStations_31',
-            layerName: 'layer_FireStations_31',
-            pane: 'pane_FireStations_31',
-            onEachFeature: pop_FireStations_31,
+            dataVar: 'json_FireStations_32',
+            layerName: 'layer_FireStations_32',
+            pane: 'pane_FireStations_32',
+            onEachFeature: pop_FireStations_32,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_FireStations_31_0(feature));
+                return L.marker(latlng, style_FireStations_32_0(feature));
             },
         });
-        bounds_group.addLayer(layer_FireStations_31);
-        map.addLayer(layer_FireStations_31);
-        function pop_Hospitals_32(feature, layer) {
+        bounds_group.addLayer(layer_FireStations_32);
+        map.addLayer(layer_FireStations_32);
+        function pop_Hospitals_33(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
@@ -1971,39 +2018,81 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Hospitals_32_0() {
+        function style_Hospitals_33_0() {
             return {
-                pane: 'pane_Hospitals_32',
+                pane: 'pane_Hospitals_33',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Hospitals_32.svg',
+            iconUrl: 'markers/Hospitals_33.svg',
             iconSize: [72.96, 72.96]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Hospitals_32');
-        map.getPane('pane_Hospitals_32').style.zIndex = 432;
-        map.getPane('pane_Hospitals_32').style['mix-blend-mode'] = 'normal';
-        var layer_Hospitals_32 = new L.geoJson(json_Hospitals_32, {
+        map.createPane('pane_Hospitals_33');
+        map.getPane('pane_Hospitals_33').style.zIndex = 433;
+        map.getPane('pane_Hospitals_33').style['mix-blend-mode'] = 'normal';
+        var layer_Hospitals_33 = new L.geoJson(json_Hospitals_33, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Hospitals_32',
-            layerName: 'layer_Hospitals_32',
-            pane: 'pane_Hospitals_32',
-            onEachFeature: pop_Hospitals_32,
+            dataVar: 'json_Hospitals_33',
+            layerName: 'layer_Hospitals_33',
+            pane: 'pane_Hospitals_33',
+            onEachFeature: pop_Hospitals_33,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Hospitals_32_0(feature));
+                return L.marker(latlng, style_Hospitals_33_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Hospitals_32);
-        map.addLayer(layer_Hospitals_32);
-        function pop_Grid_33(feature, layer) {
+        bounds_group.addLayer(layer_Hospitals_33);
+        map.addLayer(layer_Hospitals_33);
+        function pop_Regions_34(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_Regions_34_0() {
+            return {
+                pane: 'pane_Regions_34',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.519)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(255,158,23,0.519)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_Regions_34');
+        map.getPane('pane_Regions_34').style.zIndex = 434;
+        map.getPane('pane_Regions_34').style['mix-blend-mode'] = 'normal';
+        var layer_Regions_34 = new L.geoJson(json_Regions_34, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_Regions_34',
+            layerName: 'layer_Regions_34',
+            pane: 'pane_Regions_34',
+            onEachFeature: pop_Regions_34,
+            style: style_Regions_34_0,
+        });
+        bounds_group.addLayer(layer_Regions_34);
+        function pop_Grid_35(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -2031,9 +2120,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Grid_33_0() {
+        function style_Grid_35_0() {
             return {
-                pane: 'pane_Grid_33',
+                pane: 'pane_Grid_35',
                 opacity: 1,
                 color: 'rgba(0,0,0,0.45098039215686275)',
                 dashArray: '',
@@ -2044,20 +2133,20 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_Grid_33');
-        map.getPane('pane_Grid_33').style.zIndex = 433;
-        map.getPane('pane_Grid_33').style['mix-blend-mode'] = 'normal';
-        var layer_Grid_33 = new L.geoJson(json_Grid_33, {
+        map.createPane('pane_Grid_35');
+        map.getPane('pane_Grid_35').style.zIndex = 435;
+        map.getPane('pane_Grid_35').style['mix-blend-mode'] = 'normal';
+        var layer_Grid_35 = new L.geoJson(json_Grid_35, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Grid_33',
-            layerName: 'layer_Grid_33',
-            pane: 'pane_Grid_33',
-            onEachFeature: pop_Grid_33,
-            style: style_Grid_33_0,
+            dataVar: 'json_Grid_35',
+            layerName: 'layer_Grid_35',
+            pane: 'pane_Grid_35',
+            onEachFeature: pop_Grid_35,
+            style: style_Grid_35_0,
         });
-        bounds_group.addLayer(layer_Grid_33);
-        function pop_ImpactZone_34(feature, layer) {
+        bounds_group.addLayer(layer_Grid_35);
+        function pop_ImpactZone_36(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -2070,9 +2159,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_ImpactZone_34_0() {
+        function style_ImpactZone_36_0() {
             return {
-                pane: 'pane_ImpactZone_34',
+                pane: 'pane_ImpactZone_36',
                 opacity: 1,
                 color: 'rgba(35,35,35,0.5)',
                 dashArray: '',
@@ -2085,21 +2174,21 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_ImpactZone_34');
-        map.getPane('pane_ImpactZone_34').style.zIndex = 434;
-        map.getPane('pane_ImpactZone_34').style['mix-blend-mode'] = 'normal';
-        var layer_ImpactZone_34 = new L.geoJson(json_ImpactZone_34, {
+        map.createPane('pane_ImpactZone_36');
+        map.getPane('pane_ImpactZone_36').style.zIndex = 436;
+        map.getPane('pane_ImpactZone_36').style['mix-blend-mode'] = 'normal';
+        var layer_ImpactZone_36 = new L.geoJson(json_ImpactZone_36, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_ImpactZone_34',
-            layerName: 'layer_ImpactZone_34',
-            pane: 'pane_ImpactZone_34',
-            onEachFeature: pop_ImpactZone_34,
-            style: style_ImpactZone_34_0,
+            dataVar: 'json_ImpactZone_36',
+            layerName: 'layer_ImpactZone_36',
+            pane: 'pane_ImpactZone_36',
+            onEachFeature: pop_ImpactZone_36,
+            style: style_ImpactZone_36_0,
         });
-        bounds_group.addLayer(layer_ImpactZone_34);
-        map.addLayer(layer_ImpactZone_34);
-        function pop_WarningsEmergencies_35(feature, layer) {
+        bounds_group.addLayer(layer_ImpactZone_36);
+        map.addLayer(layer_ImpactZone_36);
+        function pop_WarningsEmergencies_37(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2"><strong>Name</strong><br />' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -2118,49 +2207,51 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_WarningsEmergencies_35_0() {
+        function style_WarningsEmergencies_37_0() {
             return {
-                pane: 'pane_WarningsEmergencies_35',
+                pane: 'pane_WarningsEmergencies_37',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/WarningsEmergencies_35.svg',
+            iconUrl: 'markers/WarningsEmergencies_37.svg',
             iconSize: [114.75999999999999, 114.75999999999999]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_WarningsEmergencies_35');
-        map.getPane('pane_WarningsEmergencies_35').style.zIndex = 435;
-        map.getPane('pane_WarningsEmergencies_35').style['mix-blend-mode'] = 'normal';
-        var layer_WarningsEmergencies_35 = new L.geoJson(json_WarningsEmergencies_35, {
+        map.createPane('pane_WarningsEmergencies_37');
+        map.getPane('pane_WarningsEmergencies_37').style.zIndex = 437;
+        map.getPane('pane_WarningsEmergencies_37').style['mix-blend-mode'] = 'normal';
+        var layer_WarningsEmergencies_37 = new L.geoJson(json_WarningsEmergencies_37, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_WarningsEmergencies_35',
-            layerName: 'layer_WarningsEmergencies_35',
-            pane: 'pane_WarningsEmergencies_35',
-            onEachFeature: pop_WarningsEmergencies_35,
+            dataVar: 'json_WarningsEmergencies_37',
+            layerName: 'layer_WarningsEmergencies_37',
+            pane: 'pane_WarningsEmergencies_37',
+            onEachFeature: pop_WarningsEmergencies_37,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_WarningsEmergencies_35_0(feature));
+                return L.marker(latlng, style_WarningsEmergencies_37_0(feature));
             },
         });
-        bounds_group.addLayer(layer_WarningsEmergencies_35);
-        map.addLayer(layer_WarningsEmergencies_35);
+        bounds_group.addLayer(layer_WarningsEmergencies_37);
+        map.addLayer(layer_WarningsEmergencies_37);
         var overlaysTree = [
         {label: '<b>Emergencies</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/WarningsEmergencies_35.png" /> Warnings & Emergencies', layer: layer_WarningsEmergencies_35},
-            {label: '<img src="legend/ImpactZone_34.png" /> Impact Zone', layer: layer_ImpactZone_34},]},
+            {label: '<img src="legend/WarningsEmergencies_37.png" /> Warnings & Emergencies', layer: layer_WarningsEmergencies_37},
+            {label: '<img src="legend/ImpactZone_36.png" /> Impact Zone', layer: layer_ImpactZone_36},]},
         {label: '<b>Map Overlays</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Grid_33.png" /> Grid', layer: layer_Grid_33},]},
+            {label: '<img src="legend/Grid_35.png" /> Grid', layer: layer_Grid_35},
+            {label: '<img src="legend/Regions_34.png" /> Regions', layer: layer_Regions_34},]},
         {label: '<b>Office of Public Health</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Hospitals_32.png" /> Hospitals', layer: layer_Hospitals_32},]},
+            {label: '<img src="legend/Hospitals_33.png" /> Hospitals', layer: layer_Hospitals_33},]},
         {label: '<b>Office of Emergency Services</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/FireStations_31.png" /> Fire Stations', layer: layer_FireStations_31},
-            {label: '<img src="legend/EmergencyCommunicationsCentres_30.png" /> Emergency Communications Centres', layer: layer_EmergencyCommunicationsCentres_30},]},
+            {label: '<img src="legend/FireStations_32.png" /> Fire Stations', layer: layer_FireStations_32},
+            {label: '<img src="legend/EmergencyCommunicationsCentres_31.png" /> Emergency Communications Centres', layer: layer_EmergencyCommunicationsCentres_31},
+            {label: '<img src="legend/PortusDisasterRefugeeCamp_30.png" /> Portus Disaster Refugee Camp', layer: layer_PortusDisasterRefugeeCamp_30},]},
         {label: '<b>Office of Homeland Security</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/IntelligenceAgency_29.png" /> Intelligence Agency', layer: layer_IntelligenceAgency_29},
             {label: '<img src="legend/PoliceStations_28.png" /> Police Stations', layer: layer_PoliceStations_28},]},
@@ -2259,15 +2350,28 @@
             }  
         });       
         setBounds();
-        resetLabels([layer_MetroAreas_10]);
+        var i = 0;
+        layer_Regions_34.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 17pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Regions_34'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_MetroAreas_10,layer_Regions_34]);
         map.on("zoomend", function(){
-            resetLabels([layer_MetroAreas_10]);
+            resetLabels([layer_MetroAreas_10,layer_Regions_34]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_MetroAreas_10]);
+            resetLabels([layer_MetroAreas_10,layer_Regions_34]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_MetroAreas_10]);
+            resetLabels([layer_MetroAreas_10,layer_Regions_34]);
         });
         </script>
     </body>
