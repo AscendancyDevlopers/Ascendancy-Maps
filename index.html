@@ -79,12 +79,10 @@
         <script src="data/EmergencyCommunicationsCentres_43.js"></script>
         <script src="data/FireStations_44.js"></script>
         <script src="data/Hospitals_45.js"></script>
-        <script src="data/Regions_46.js"></script>
-        <script src="data/Grid_47.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:26, minZoom:15
-        }).fitBounds([[-0.02064740566719048,-0.0010845038145543971],[0.003652909305279773,0.044179982030523306]]);
+        }).fitBounds([[-0.01985908365581981,-0.0020824812570532864],[0.0040341184082121175,0.04242367045316961]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -798,6 +796,9 @@
                         <th scope="row">Authority</th>\
                         <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -842,6 +843,9 @@
                     <tr>\
                         <th scope="row">Authority</th>\
                         <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -888,6 +892,9 @@
                         <th scope="row">Authority</th>\
                         <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -932,6 +939,9 @@
                     <tr>\
                         <th scope="row">Authority</th>\
                         <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -995,6 +1005,9 @@
                         <th scope="row">Owner</th>\
                         <td>' + (feature.properties['Owner'] !== null ? autolinker.link(String(feature.properties['Owner']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -1045,6 +1058,9 @@
                         <th scope="row">Owner</th>\
                         <td>' + (feature.properties['Owner'] !== null ? autolinker.link(String(feature.properties['Owner']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
 			layer.on('popupopen', function(e) {
@@ -1094,6 +1110,9 @@
                     <tr>\
                         <th scope="row">Authority</th>\
                         <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1234,13 +1253,16 @@
         function pop_University_23(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Name</th>\
+                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Condition</th>\
+                        <td>' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Authority</th>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1960,12 +1982,7 @@
                         <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">SecLevel</th>\
-                        <td>' + (feature.properties['SecLevel'] !== null ? autolinker.link(String(feature.properties['SecLevel']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">PubAccess</th>\
-                        <td>' + (feature.properties['PubAccess'] !== null ? autolinker.link(String(feature.properties['PubAccess']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <td colspan="2">' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -2071,6 +2088,9 @@
                     <tr>\
                         <th scope="row">Purpose</th>\
                         <td>' + (feature.properties['Purpose'] !== null ? autolinker.link(String(feature.properties['Purpose']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -2431,106 +2451,7 @@
         });
         bounds_group.addLayer(layer_Hospitals_45);
         map.addLayer(layer_Hospitals_45);
-        function pop_Regions_46(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Regions_46_0() {
-            return {
-                pane: 'pane_Regions_46',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.519)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(255,158,23,0.519)',
-                interactive: true,
-            }
-        }
-        map.createPane('pane_Regions_46');
-        map.getPane('pane_Regions_46').style.zIndex = 446;
-        map.getPane('pane_Regions_46').style['mix-blend-mode'] = 'normal';
-        var layer_Regions_46 = new L.geoJson(json_Regions_46, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_Regions_46',
-            layerName: 'layer_Regions_46',
-            pane: 'pane_Regions_46',
-            onEachFeature: pop_Regions_46,
-            style: style_Regions_46_0,
-        });
-        bounds_group.addLayer(layer_Regions_46);
-        function pop_Grid_47(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['left'] !== null ? autolinker.link(String(feature.properties['left']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['top'] !== null ? autolinker.link(String(feature.properties['top']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['right'] !== null ? autolinker.link(String(feature.properties['right']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['bottom'] !== null ? autolinker.link(String(feature.properties['bottom']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_Grid_47_0() {
-            return {
-                pane: 'pane_Grid_47',
-                opacity: 1,
-                color: 'rgba(0,0,0,0.45098039215686275)',
-                dashArray: '',
-                lineCap: 'square',
-                lineJoin: 'bevel',
-                weight: 1.0,
-                fillOpacity: 0,
-                interactive: false,
-            }
-        }
-        map.createPane('pane_Grid_47');
-        map.getPane('pane_Grid_47').style.zIndex = 447;
-        map.getPane('pane_Grid_47').style['mix-blend-mode'] = 'normal';
-        var layer_Grid_47 = new L.geoJson(json_Grid_47, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_Grid_47',
-            layerName: 'layer_Grid_47',
-            pane: 'pane_Grid_47',
-            onEachFeature: pop_Grid_47,
-            style: style_Grid_47_0,
-        });
-        bounds_group.addLayer(layer_Grid_47);
         var overlaysTree = [
-        {label: '<b>Map Overlays</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Grid_47.png" /> Grid', layer: layer_Grid_47},
-            {label: '<img src="legend/Regions_46.png" /> Regions', layer: layer_Regions_46},]},
         {label: '<b>Office of Public Health</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/Hospitals_45.png" /> Hospitals', layer: layer_Hospitals_45},]},
         {label: '<b>Office of Emergency Services</b>',  selectAllCheckbox: true, children: [
@@ -2647,28 +2568,15 @@
             }  
         });       
         setBounds();
-        var i = 0;
-        layer_Regions_46.eachLayer(function(layer) {
-            var context = {
-                feature: layer.feature,
-                variables: {}
-            };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #323232; font-size: 17pt; font-family: \'Open Sans\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_Regions_46'});
-            labels.push(layer);
-            totalMarkers += 1;
-              layer.added = true;
-              addLabel(layer, i);
-              i++;
-        });
-        resetLabels([layer_MetroAreas_10,layer_Regions_46]);
+        resetLabels([layer_MetroAreas_10]);
         map.on("zoomend", function(){
-            resetLabels([layer_MetroAreas_10,layer_Regions_46]);
+            resetLabels([layer_MetroAreas_10]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_MetroAreas_10,layer_Regions_46]);
+            resetLabels([layer_MetroAreas_10]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_MetroAreas_10,layer_Regions_46]);
+            resetLabels([layer_MetroAreas_10]);
         });
         </script>
     </body>

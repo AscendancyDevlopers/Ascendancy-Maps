@@ -1,5 +1,5 @@
 <!DOCTYPE qgis PUBLIC 'http://mrcc.com/qgis.dtd' 'SYSTEM'>
-<qgis projectname="Novum Domitros Interactive Map" saveUser="GGPC" saveUserFull="GGPC" saveDateTime="2025-10-26T15:26:24" version="3.34.11-Prizren">
+<qgis projectname="Novum Domitros Interactive Map" saveUser="GGPC" saveUserFull="GGPC" saveDateTime="2025-10-26T16:02:31" version="3.34.11-Prizren">
   <homePath path=""/>
   <title>Novum Domitros Interactive Map</title>
   <transaction mode="Disabled"/>
@@ -53,7 +53,7 @@
           </Option>
         </customproperties>
       </layer-tree-layer>
-      <layer-tree-layer legend_exp="" checked="Qt::Unchecked" expanded="1" patch_size="-1,-1" providerKey="ogr" legend_split_behavior="0" id="Electorates_0c6d4ff1_6f6c_4185_ac58_a5b524780f52" name="Regions" source="./Electorates.shp">
+      <layer-tree-layer legend_exp="" checked="Qt::Checked" expanded="1" patch_size="-1,-1" providerKey="ogr" legend_split_behavior="0" id="Electorates_0c6d4ff1_6f6c_4185_ac58_a5b524780f52" name="Regions" source="./Electorates.shp">
         <customproperties>
           <Option/>
         </customproperties>
@@ -448,10 +448,10 @@
   <mapcanvas annotationsVisible="1" name="theMapCanvas">
     <units>meters</units>
     <extent>
-      <xmin>-463.74799542949995157</xmin>
-      <ymin>-2630.79633205516392991</ymin>
-      <xmax>5219.75268009006504144</xmax>
-      <ymax>453.62822840343733333</ymax>
+      <xmin>-93.58550561666197609</xmin>
+      <ymin>-2298.45873482128627074</ymin>
+      <xmax>4890.9521961109348922</xmax>
+      <ymax>406.64000405323622545</ymax>
     </extent>
     <rotation>0</rotation>
     <destinationsrs>
@@ -495,9 +495,9 @@
           <legendlayerfile visible="0" isInOverview="0" layerid="Electorates_c9f74b09_8976_451f_bff1_64dc2879585b"/>
         </filegroup>
       </legendlayer>
-      <legendlayer drawingOrder="-1" showFeatureCount="0" checked="Qt::Unchecked" name="Regions" open="true">
+      <legendlayer drawingOrder="-1" showFeatureCount="0" checked="Qt::Checked" name="Regions" open="true">
         <filegroup hidden="false" open="true">
-          <legendlayerfile visible="0" isInOverview="0" layerid="Electorates_0c6d4ff1_6f6c_4185_ac58_a5b524780f52"/>
+          <legendlayerfile visible="1" isInOverview="0" layerid="Electorates_0c6d4ff1_6f6c_4185_ac58_a5b524780f52"/>
         </filegroup>
       </legendlayer>
     </legendgroup>
@@ -2153,7 +2153,15 @@ def my_form_open(dialog, layer, feature):
       </selection>
       <customproperties>
         <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option value="&quot;Name&quot;" type="QString"/>
+          </Option>
           <Option value="0" type="int" name="embeddedWidgets/count"/>
+          <Option value="true" type="bool" name="qgis2web/Interactive"/>
+          <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
+          <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option name="variableNames"/>
           <Option name="variableValues"/>
         </Option>
@@ -2245,26 +2253,38 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
+        <field name="Condition" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
       </fieldConfiguration>
       <aliases>
         <alias name="" index="0" field="id"/>
         <alias name="" index="1" field="Name"/>
+        <alias name="" index="2" field="Condition"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="id"/>
         <policy policy="Duplicate" field="Name"/>
+        <policy policy="Duplicate" field="Condition"/>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="id"/>
         <default applyOnUpdate="0" expression="" field="Name"/>
+        <default applyOnUpdate="0" expression="" field="Condition"/>
       </defaults>
       <constraints>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="id" exp_strength="0"/>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Name" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Condition" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="id"/>
         <constraint desc="" exp="" field="Name"/>
+        <constraint desc="" exp="" field="Condition"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -2635,6 +2655,7 @@ def my_form_open(dialog, layer, feature):
           <Option value="0" type="int" name="embeddedWidgets/count"/>
           <Option value="true" type="bool" name="qgis2web/Interactive"/>
           <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
           <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option type="invalid" name="variableNames"/>
@@ -2729,26 +2750,38 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
+        <field name="Condition" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
       </fieldConfiguration>
       <aliases>
         <alias name="" index="0" field="id"/>
         <alias name="" index="1" field="Name"/>
+        <alias name="" index="2" field="Condition"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="id"/>
         <policy policy="Duplicate" field="Name"/>
+        <policy policy="Duplicate" field="Condition"/>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="id"/>
         <default applyOnUpdate="0" expression="" field="Name"/>
+        <default applyOnUpdate="0" expression="" field="Condition"/>
       </defaults>
       <constraints>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="id" exp_strength="0"/>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Name" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Condition" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="id"/>
         <constraint desc="" exp="" field="Name"/>
+        <constraint desc="" exp="" field="Condition"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -5911,6 +5944,7 @@ def my_form_open(dialog, layer, feature):
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/AirRescue"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/AirSuppt"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Authority"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/DiveTeam"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/EMS"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/EngineCo"/>
@@ -7037,7 +7071,15 @@ def my_form_open(dialog, layer, feature):
       </selection>
       <customproperties>
         <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option value="&quot;Name&quot;" type="QString"/>
+          </Option>
           <Option value="0" type="int" name="embeddedWidgets/count"/>
+          <Option value="true" type="bool" name="qgis2web/Interactive"/>
+          <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
+          <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option name="variableNames"/>
           <Option name="variableValues"/>
         </Option>
@@ -7129,26 +7171,38 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
+        <field name="Condition" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
       </fieldConfiguration>
       <aliases>
         <alias name="" index="0" field="id"/>
         <alias name="" index="1" field="Name"/>
+        <alias name="" index="2" field="Condition"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="id"/>
         <policy policy="Duplicate" field="Name"/>
+        <policy policy="Duplicate" field="Condition"/>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="id"/>
         <default applyOnUpdate="0" expression="" field="Name"/>
+        <default applyOnUpdate="0" expression="" field="Condition"/>
       </defaults>
       <constraints>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="id" exp_strength="0"/>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Name" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Condition" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="id"/>
         <constraint desc="" exp="" field="Name"/>
+        <constraint desc="" exp="" field="Condition"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -8564,7 +8618,14 @@ def my_form_open(dialog, layer, feature):
       </selection>
       <customproperties>
         <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option value="&quot;id&quot;" type="QString"/>
+          </Option>
           <Option value="0" type="int" name="embeddedWidgets/count"/>
+          <Option value="true" type="bool" name="qgis2web/Interactive"/>
+          <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
+          <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option name="variableNames"/>
           <Option name="variableValues"/>
         </Option>
@@ -8649,21 +8710,33 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
+        <field name="Condition" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
       </fieldConfiguration>
       <aliases>
         <alias name="" index="0" field="id"/>
+        <alias name="" index="1" field="Condition"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="id"/>
+        <policy policy="Duplicate" field="Condition"/>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="id"/>
+        <default applyOnUpdate="0" expression="" field="Condition"/>
       </defaults>
       <constraints>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="id" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Condition" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="id"/>
+        <constraint desc="" exp="" field="Condition"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -10544,6 +10617,7 @@ def my_form_open(dialog, layer, feature):
           <Option value="true" type="bool" name="qgis2web/Visible"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/AdminOff"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Cardio"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Derm"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/EmergDept"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Endocrin"/>
@@ -11596,6 +11670,7 @@ def my_form_open(dialog, layer, feature):
           <Option value="true" type="bool" name="qgis2web/Visible"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Analysts"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Authority"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/CountIntel"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/CyberSec"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
@@ -13689,7 +13764,15 @@ def my_form_open(dialog, layer, feature):
       </selection>
       <customproperties>
         <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option value="&quot;Name&quot;" type="QString"/>
+          </Option>
           <Option value="0" type="int" name="embeddedWidgets/count"/>
+          <Option value="true" type="bool" name="qgis2web/Interactive"/>
+          <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
+          <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option name="variableNames"/>
           <Option name="variableValues"/>
         </Option>
@@ -13781,26 +13864,38 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
+        <field name="Condition" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
       </fieldConfiguration>
       <aliases>
         <alias name="" index="0" field="id"/>
         <alias name="" index="1" field="Name"/>
+        <alias name="" index="2" field="Condition"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="id"/>
         <policy policy="Duplicate" field="Name"/>
+        <policy policy="Duplicate" field="Condition"/>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="id"/>
         <default applyOnUpdate="0" expression="" field="Name"/>
+        <default applyOnUpdate="0" expression="" field="Condition"/>
       </defaults>
       <constraints>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="id" exp_strength="0"/>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Name" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Condition" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="id"/>
         <constraint desc="" exp="" field="Name"/>
+        <constraint desc="" exp="" field="Condition"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -16244,7 +16339,15 @@ def my_form_open(dialog, layer, feature):
       </selection>
       <customproperties>
         <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option value="&quot;Name&quot;" type="QString"/>
+          </Option>
           <Option value="0" type="int" name="embeddedWidgets/count"/>
+          <Option value="true" type="bool" name="qgis2web/Interactive"/>
+          <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
+          <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option name="variableNames"/>
           <Option name="variableValues"/>
         </Option>
@@ -16336,26 +16439,38 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
+        <field name="Condition" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
       </fieldConfiguration>
       <aliases>
         <alias name="" index="0" field="id"/>
         <alias name="" index="1" field="Name"/>
+        <alias name="" index="2" field="Condition"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="id"/>
         <policy policy="Duplicate" field="Name"/>
+        <policy policy="Duplicate" field="Condition"/>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="id"/>
         <default applyOnUpdate="0" expression="" field="Name"/>
+        <default applyOnUpdate="0" expression="" field="Condition"/>
       </defaults>
       <constraints>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="id" exp_strength="0"/>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Name" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Condition" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="id"/>
         <constraint desc="" exp="" field="Name"/>
+        <constraint desc="" exp="" field="Condition"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -19259,6 +19374,7 @@ def my_form_open(dialog, layer, feature):
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/AOS"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Authority"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/CntrTerr"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/CrisisNeg"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/CyberCrm"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/DVChild"/>
@@ -20831,6 +20947,7 @@ def my_form_open(dialog, layer, feature):
           <Option value="0" type="int" name="embeddedWidgets/count"/>
           <Option value="true" type="bool" name="qgis2web/Interactive"/>
           <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Owner"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Role"/>
@@ -21373,7 +21490,15 @@ def my_form_open(dialog, layer, feature):
       </selection>
       <customproperties>
         <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option value="&quot;Name&quot;" type="QString"/>
+          </Option>
           <Option value="0" type="int" name="embeddedWidgets/count"/>
+          <Option value="true" type="bool" name="qgis2web/Interactive"/>
+          <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
+          <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option name="variableNames"/>
           <Option name="variableValues"/>
         </Option>
@@ -21465,26 +21590,38 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
+        <field name="Condition" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
       </fieldConfiguration>
       <aliases>
         <alias name="" index="0" field="id"/>
         <alias name="" index="1" field="Name"/>
+        <alias name="" index="2" field="Condition"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="id"/>
         <policy policy="Duplicate" field="Name"/>
+        <policy policy="Duplicate" field="Condition"/>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="id"/>
         <default applyOnUpdate="0" expression="" field="Name"/>
+        <default applyOnUpdate="0" expression="" field="Condition"/>
       </defaults>
       <constraints>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="id" exp_strength="0"/>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Name" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Condition" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="id"/>
         <constraint desc="" exp="" field="Name"/>
+        <constraint desc="" exp="" field="Condition"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -21493,7 +21630,7 @@ def my_form_open(dialog, layer, feature):
       <attributetableconfig sortExpression="" actionWidgetStyle="dropDown" sortOrder="0">
         <columns>
           <column type="field" hidden="0" width="-1" name="id"/>
-          <column type="field" hidden="0" width="-1" name="Name"/>
+          <column type="field" hidden="0" width="168" name="Name"/>
           <column type="actions" hidden="1" width="-1"/>
         </columns>
       </attributetableconfig>
@@ -22897,7 +23034,15 @@ def my_form_open(dialog, layer, feature):
       </selection>
       <customproperties>
         <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option value="&quot;Name&quot;" type="QString"/>
+          </Option>
           <Option value="0" type="int" name="embeddedWidgets/count"/>
+          <Option value="true" type="bool" name="qgis2web/Interactive"/>
+          <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
+          <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option name="variableNames"/>
           <Option name="variableValues"/>
         </Option>
@@ -22989,26 +23134,38 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
+        <field name="Condition" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
       </fieldConfiguration>
       <aliases>
         <alias name="" index="0" field="id"/>
         <alias name="" index="1" field="Name"/>
+        <alias name="" index="2" field="Condition"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="id"/>
         <policy policy="Duplicate" field="Name"/>
+        <policy policy="Duplicate" field="Condition"/>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="id"/>
         <default applyOnUpdate="0" expression="" field="Name"/>
+        <default applyOnUpdate="0" expression="" field="Condition"/>
       </defaults>
       <constraints>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="id" exp_strength="0"/>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Name" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Condition" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="id"/>
         <constraint desc="" exp="" field="Name"/>
+        <constraint desc="" exp="" field="Condition"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -23380,6 +23537,7 @@ def my_form_open(dialog, layer, feature):
           <Option value="true" type="bool" name="qgis2web/Interactive"/>
           <Option value="true" type="bool" name="qgis2web/Visible"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Authority"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
           <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option type="invalid" name="variableNames"/>
@@ -23899,7 +24057,15 @@ def my_form_open(dialog, layer, feature):
       </selection>
       <customproperties>
         <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option value="&quot;Name&quot;" type="QString"/>
+          </Option>
           <Option value="0" type="int" name="embeddedWidgets/count"/>
+          <Option value="true" type="bool" name="qgis2web/Interactive"/>
+          <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
+          <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option name="variableNames"/>
           <Option name="variableValues"/>
         </Option>
@@ -23991,26 +24157,38 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
+        <field name="Condition" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
       </fieldConfiguration>
       <aliases>
         <alias name="" index="0" field="id"/>
         <alias name="" index="1" field="Name"/>
+        <alias name="" index="2" field="Condition"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="id"/>
         <policy policy="Duplicate" field="Name"/>
+        <policy policy="Duplicate" field="Condition"/>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="id"/>
         <default applyOnUpdate="0" expression="" field="Name"/>
+        <default applyOnUpdate="0" expression="" field="Condition"/>
       </defaults>
       <constraints>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="id" exp_strength="0"/>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Name" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Condition" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="id"/>
         <constraint desc="" exp="" field="Name"/>
+        <constraint desc="" exp="" field="Condition"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -24376,6 +24554,11 @@ def my_form_open(dialog, layer, feature):
       <customproperties>
         <Option type="Map">
           <Option value="0" type="int" name="embeddedWidgets/count"/>
+          <Option value="true" type="bool" name="qgis2web/Interactive"/>
+          <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
+          <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option name="variableNames"/>
           <Option name="variableValues"/>
         </Option>
@@ -24467,26 +24650,38 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
+        <field name="Condition" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
       </fieldConfiguration>
       <aliases>
         <alias name="" index="0" field="id"/>
         <alias name="" index="1" field="Name"/>
+        <alias name="" index="2" field="Condition"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="id"/>
         <policy policy="Duplicate" field="Name"/>
+        <policy policy="Duplicate" field="Condition"/>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="id"/>
         <default applyOnUpdate="0" expression="" field="Name"/>
+        <default applyOnUpdate="0" expression="" field="Condition"/>
       </defaults>
       <constraints>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="id" exp_strength="0"/>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Name" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Condition" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="id"/>
         <constraint desc="" exp="" field="Name"/>
+        <constraint desc="" exp="" field="Condition"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -24857,6 +25052,7 @@ def my_form_open(dialog, layer, feature):
           <Option value="0" type="int" name="embeddedWidgets/count"/>
           <Option value="true" type="bool" name="qgis2web/Interactive"/>
           <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Condition"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Name"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Owner"/>
           <Option value="inline label - always visible" type="QString" name="qgis2web/popup/Type"/>
@@ -25577,16 +25773,16 @@ def my_form_open(dialog, layer, feature):
     </maplayer>
     <maplayer symbologyReferenceScale="-1" refreshOnNotifyEnabled="0" simplifyAlgorithm="0" readOnly="0" labelsEnabled="0" legendPlaceholderImage="" simplifyLocal="1" hasScaleBasedVisibilityFlag="0" simplifyMaxScale="1" autoRefreshTime="0" autoRefreshMode="Disabled" refreshOnNotifyMessage="" styleCategories="AllStyleCategories" geometry="Point" wkbType="Point" type="vector" minScale="100000000" simplifyDrawingTol="1" maxScale="0" simplifyDrawingHints="0">
       <extent>
-        <xmin>0</xmin>
-        <ymin>0</ymin>
-        <xmax>0</xmax>
-        <ymax>0</ymax>
+        <xmin>1648.19701905321539925</xmin>
+        <ymin>-1004.77007328871445679</ymin>
+        <xmax>2848.89981996988171886</xmax>
+        <ymax>-866.49606082319837697</ymax>
       </extent>
       <wgs84extent>
-        <xmin>0</xmin>
-        <ymin>0</ymin>
-        <xmax>0</xmax>
-        <ymax>0</ymax>
+        <xmin>0.01480600573455737</xmin>
+        <ymin>-0.00902600310127869</ymin>
+        <xmax>0.02559210251204308</xmax>
+        <ymax>-0.00778386652672476</ymax>
       </wgs84extent>
       <id>University_57946d4e_ee06_4487_b360_99e79a05d0d4</id>
       <datasource>../../../../../../Documents/University.shp</datasource>
@@ -25894,7 +26090,16 @@ def my_form_open(dialog, layer, feature):
       </selection>
       <customproperties>
         <Option type="Map">
+          <Option type="List" name="dualview/previewExpressions">
+            <Option value="&quot;Name&quot;" type="QString"/>
+          </Option>
           <Option value="0" type="int" name="embeddedWidgets/count"/>
+          <Option value="true" type="bool" name="qgis2web/Interactive"/>
+          <Option value="true" type="bool" name="qgis2web/Visible"/>
+          <Option value="no label" type="QString" name="qgis2web/popup/Authority"/>
+          <Option value="no label" type="QString" name="qgis2web/popup/Condition"/>
+          <Option value="no label" type="QString" name="qgis2web/popup/Name"/>
+          <Option value="hidden field" type="QString" name="qgis2web/popup/id"/>
           <Option name="variableNames"/>
           <Option name="variableValues"/>
         </Option>
@@ -25986,26 +26191,50 @@ def my_form_open(dialog, layer, feature):
             </config>
           </editWidget>
         </field>
+        <field name="Condition" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
+        <field name="Authority" configurationFlags="NoFlag">
+          <editWidget type="">
+            <config>
+              <Option/>
+            </config>
+          </editWidget>
+        </field>
       </fieldConfiguration>
       <aliases>
         <alias name="" index="0" field="id"/>
         <alias name="" index="1" field="Name"/>
+        <alias name="" index="2" field="Condition"/>
+        <alias name="" index="3" field="Authority"/>
       </aliases>
       <splitPolicies>
         <policy policy="Duplicate" field="id"/>
         <policy policy="Duplicate" field="Name"/>
+        <policy policy="Duplicate" field="Condition"/>
+        <policy policy="Duplicate" field="Authority"/>
       </splitPolicies>
       <defaults>
         <default applyOnUpdate="0" expression="" field="id"/>
         <default applyOnUpdate="0" expression="" field="Name"/>
+        <default applyOnUpdate="0" expression="" field="Condition"/>
+        <default applyOnUpdate="0" expression="" field="Authority"/>
       </defaults>
       <constraints>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="id" exp_strength="0"/>
         <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Name" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Condition" exp_strength="0"/>
+        <constraint unique_strength="0" constraints="0" notnull_strength="0" field="Authority" exp_strength="0"/>
       </constraints>
       <constraintExpressions>
         <constraint desc="" exp="" field="id"/>
         <constraint desc="" exp="" field="Name"/>
+        <constraint desc="" exp="" field="Condition"/>
+        <constraint desc="" exp="" field="Authority"/>
       </constraintExpressions>
       <expressionfields/>
       <attributeactions>
@@ -26014,7 +26243,9 @@ def my_form_open(dialog, layer, feature):
       <attributetableconfig sortExpression="" actionWidgetStyle="dropDown" sortOrder="0">
         <columns>
           <column type="field" hidden="0" width="-1" name="id"/>
-          <column type="field" hidden="0" width="-1" name="Name"/>
+          <column type="field" hidden="0" width="215" name="Name"/>
+          <column type="field" hidden="0" width="-1" name="Authority"/>
+          <column type="field" hidden="0" width="-1" name="Condition"/>
           <column type="actions" hidden="1" width="-1"/>
         </columns>
       </attributetableconfig>
@@ -27593,7 +27824,7 @@ def my_form_open(dialog, layer, feature):
   <Sensors/>
   <ProjectViewSettings UseProjectScales="0" rotation="0">
     <Scales/>
-    <DefaultViewExtent ymin="-2630.79633205516392991" xmin="-494.69476948666942917" xmax="5250.69945414723406429" ymax="453.62822840343733333">
+    <DefaultViewExtent ymin="-2648.79138276635421789" xmin="-93.58550561666197609" xmax="4890.9521961109348922" ymax="756.97265199830394522">
       <spatialrefsys nativeFormat="Wkt">
         <wkt>PROJCRS["WGS 84 / Pseudo-Mercator",BASEGEOGCRS["WGS 84",ENSEMBLE["World Geodetic System 1984 ensemble",MEMBER["World Geodetic System 1984 (Transit)"],MEMBER["World Geodetic System 1984 (G730)"],MEMBER["World Geodetic System 1984 (G873)"],MEMBER["World Geodetic System 1984 (G1150)"],MEMBER["World Geodetic System 1984 (G1674)"],MEMBER["World Geodetic System 1984 (G1762)"],MEMBER["World Geodetic System 1984 (G2139)"],ELLIPSOID["WGS 84",6378137,298.257223563,LENGTHUNIT["metre",1]],ENSEMBLEACCURACY[2.0]],PRIMEM["Greenwich",0,ANGLEUNIT["degree",0.0174532925199433]],ID["EPSG",4326]],CONVERSION["Popular Visualisation Pseudo-Mercator",METHOD["Popular Visualisation Pseudo Mercator",ID["EPSG",1024]],PARAMETER["Latitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8801]],PARAMETER["Longitude of natural origin",0,ANGLEUNIT["degree",0.0174532925199433],ID["EPSG",8802]],PARAMETER["False easting",0,LENGTHUNIT["metre",1],ID["EPSG",8806]],PARAMETER["False northing",0,LENGTHUNIT["metre",1],ID["EPSG",8807]]],CS[Cartesian,2],AXIS["easting (X)",east,ORDER[1],LENGTHUNIT["metre",1]],AXIS["northing (Y)",north,ORDER[2],LENGTHUNIT["metre",1]],USAGE[SCOPE["Web mapping and visualisation."],AREA["World between 85.06°S and 85.06°N."],BBOX[-85.06,-180,85.06,180]],ID["EPSG",3857]]</wkt>
         <proj4>+proj=merc +a=6378137 +b=6378137 +lat_ts=0 +lon_0=0 +x_0=0 +y_0=0 +k=1 +units=m +nadgrids=@null +wktext +no_defs</proj4>
@@ -27671,7 +27902,7 @@ def my_form_open(dialog, layer, feature):
       </spatialrefsys>
     </CoordinateCustomCrs>
   </ProjectDisplaySettings>
-  <ProjectGpsSettings destinationLayerProvider="ogr" destinationLayer="Power_7e9df0f4_bd1b_4944_921f_e4c989ce83bf" autoAddTrackVertices="0" destinationFollowsActiveLayer="1" destinationLayerSource="C:/Users/GGPC/OneDrive/Documents/GitHub/Ascendancy-Maps/Planet Maps/Novum Domitros/Power.shp" destinationLayerName="Power" autoCommitFeatures="0">
+  <ProjectGpsSettings destinationLayerProvider="ogr" destinationLayer="Sewage_e13cfa1f_ae65_495b_b133_91000d043515" autoAddTrackVertices="0" destinationFollowsActiveLayer="1" destinationLayerSource="C:/Users/GGPC/OneDrive/Documents/GitHub/Ascendancy-Maps/Planet Maps/Novum Domitros/Sewage.shp" destinationLayerName="Water &amp; Waste" autoCommitFeatures="0">
     <timeStampFields/>
   </ProjectGpsSettings>
 </qgis>
