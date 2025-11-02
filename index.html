@@ -85,7 +85,7 @@
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:26, minZoom:15
-        }).fitBounds([[-0.021500204639394723,-0.0021033712089651383],[0.003702840899211009,0.04484264167967125]]);
+        }).fitBounds([[-0.020382573524673275,-0.001111357130447833],[0.003742063283039489,0.04382589088154265]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -688,7 +688,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(129,44,6,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_Badlands_11');
@@ -696,7 +696,7 @@
         map.getPane('pane_Badlands_11').style['mix-blend-mode'] = 'normal';
         var layer_Badlands_11 = new L.geoJson(json_Badlands_11, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_Badlands_11',
             layerName: 'layer_Badlands_11',
             pane: 'pane_Badlands_11',
@@ -727,7 +727,7 @@
                 fill: true,
                 fillOpacity: 1,
                 fillColor: 'rgba(66,66,66,1.0)',
-                interactive: true,
+                interactive: false,
             }
         }
         map.createPane('pane_ObsidianLayer_12');
@@ -735,7 +735,7 @@
         map.getPane('pane_ObsidianLayer_12').style['mix-blend-mode'] = 'normal';
         var layer_ObsidianLayer_12 = new L.geoJson(json_ObsidianLayer_12, {
             attribution: '',
-            interactive: true,
+            interactive: false,
             dataVar: 'json_ObsidianLayer_12',
             layerName: 'layer_ObsidianLayer_12',
             pane: 'pane_ObsidianLayer_12',
@@ -753,6 +753,10 @@
                     <tr>\
                         <th scope="row">Authority</th>\
                         <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <th scope="row">Condition</th>\
+                        <td>' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -1221,7 +1225,8 @@
                         <td>' + (feature.properties['Condition'] !== null ? autolinker.link(String(feature.properties['Condition']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <td colspan="2">' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                        <th scope="row">Authority</th>\
+                        <td>' + (feature.properties['Authority'] !== null ? autolinker.link(String(feature.properties['Authority']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
