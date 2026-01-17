@@ -1,0 +1,1 @@
+var json_GovernorsPalace_32 = {"type":"FeatureCollection","name":"GovernorsPalace_32","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[]}

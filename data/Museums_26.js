@@ -1,0 +1,1 @@
+var json_Museums_26 = {"type":"FeatureCollection","name":"Museums_26","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Name":"National Union Museum","Condition":"Poor","Authority":"Regional Governor"},"geometry":{"type":"Point","coordinates":[0.014568805782975,-0.008414448205034]}}]}
