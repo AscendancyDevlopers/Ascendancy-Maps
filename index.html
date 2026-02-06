@@ -10,6 +10,7 @@
         <link rel="stylesheet" href="css/L.Control.Layers.Tree.css">
         <link rel="stylesheet" href="css/qgis2web.css">
         <link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <link rel="stylesheet" href="css/leaflet.photon.css">
         <style>
         html, body, #map {
             width: 100%;
@@ -33,6 +34,7 @@
         <script src="js/rbush.min.js"></script>
         <script src="js/labelgun.min.js"></script>
         <script src="js/labels.js"></script>
+        <script src="js/leaflet.photon.js"></script>
         <script src="data/PrimusIsland_0.js"></script>
         <script src="data/NovumContinent_1.js"></script>
         <script src="data/HarenaIsles_2.js"></script>
@@ -56,7 +58,7 @@
         <script src="data/Port_20.js"></script>
         <script src="data/NationalBridges_21.js"></script>
         <script src="data/ParksRecreation_22.js"></script>
-        <script src="data/CityRegionalCouncils_23.js"></script>
+        <script src="data/RegionalAdministrativeBuildings_23.js"></script>
         <script src="data/University_24.js"></script>
         <script src="data/Library_25.js"></script>
         <script src="data/Museums_26.js"></script>
@@ -84,12 +86,10 @@
         <script src="data/MiningLeases_48.js"></script>
         <script src="data/Regions_49.js"></script>
         <script src="data/Grid_50.js"></script>
-        <script src="data/ImpactZone_51.js"></script>
-        <script src="data/WarningsEmergencies_52.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:26, minZoom:15
-        }).fitBounds([[-0.02103367525785143,-0.0005330102366885757],[0.0038392801909418587,0.04657929451368253]]);
+        }).fitBounds([[-0.02222366302453827,-0.0032225749141467685],[0.00442851275262441,0.04483442557209755]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -107,20 +107,53 @@
          }
          return tempDiv.innerHTML;
         }
-        // add class to format popup if it contains media
-		function addClassToPopupIfMedia(content, popup) {
-			var tempDiv = document.createElement('div');
-			tempDiv.innerHTML = content;
-			if (tempDiv.querySelector('td img')) {
-				popup._contentNode.classList.add('media');
-					// Delay to force the redraw
-					setTimeout(function() {
-						popup.update();
-					}, 10);
-			} else {
-				popup._contentNode.classList.remove('media');
-			}
-		}
+        // modify popup if contains media
+        function addClassToPopupIfMedia(content, popup) {
+            var tempDiv = document.createElement('div');
+            tempDiv.innerHTML = content;
+            var imgTd = tempDiv.querySelector('td img');
+            if (imgTd) {
+                var src = imgTd.getAttribute('src');
+                if (/\.(jpg|jpeg|png|gif|bmp|webp|avif)$/i.test(src)) {
+                    popup._contentNode.classList.add('media');
+                    setTimeout(function() {
+                        popup.update();
+                    }, 10);
+                } else if (/\.(mp3|wav|ogg|aac)$/i.test(src)) {
+                    var audio = document.createElement('audio');
+                    audio.controls = true;
+                    audio.src = src;
+                    imgTd.parentNode.replaceChild(audio, imgTd);
+                    popup._contentNode.classList.add('media');
+                    setTimeout(function() {
+                        popup.setContent(tempDiv.innerHTML);
+                        popup.update();
+                    }, 10);
+                } else if (/\.(mp4|webm|ogg|mov)$/i.test(src)) {
+                    var video = document.createElement('video');
+                    video.controls = true;
+                    video.src = src;
+                    video.style.width = "400px";
+                    video.style.height = "300px";
+                    video.style.maxHeight = "60vh";
+                    video.style.maxWidth = "60vw";
+                    imgTd.parentNode.replaceChild(video, imgTd);
+                    popup._contentNode.classList.add('media');
+                    // Aggiorna il popup quando il video carica i metadati
+                    video.addEventListener('loadedmetadata', function() {
+                        popup.update();
+                    });
+                    setTimeout(function() {
+                        popup.setContent(tempDiv.innerHTML);
+                        popup.update();
+                    }, 10);
+                } else {
+                    popup._contentNode.classList.remove('media');
+                }
+            } else {
+                popup._contentNode.classList.remove('media');
+            }
+        }
         var title = new L.Control({'position':'bottomleft'});
         title.onAdd = function (map) {
             this._div = L.DomUtil.create('div', 'info');
@@ -1009,14 +1042,6 @@
                         <td class="visible-with-data" id="Code">' + (feature.properties['Code'] !== null ? autolinker.link(String(feature.properties['Code']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
                     <tr>\
-                        <th scope="row">Runways</th>\
-                        <td>' + (feature.properties['Runways'] !== null ? autolinker.link(String(feature.properties['Runways']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Terminals</th>\
-                        <td>' + (feature.properties['Terminals'] !== null ? autolinker.link(String(feature.properties['Terminals']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
                         <th scope="row">Owner</th>\
                         <td>' + (feature.properties['Owner'] !== null ? autolinker.link(String(feature.properties['Owner']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
                     </tr>\
@@ -1259,7 +1284,7 @@
         });
         bounds_group.addLayer(layer_ParksRecreation_22);
         map.addLayer(layer_ParksRecreation_22);
-        function pop_CityRegionalCouncils_23(feature, layer) {
+        function pop_RegionalAdministrativeBuildings_23(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
@@ -1281,38 +1306,38 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_CityRegionalCouncils_23_0() {
+        function style_RegionalAdministrativeBuildings_23_0() {
             return {
-                pane: 'pane_CityRegionalCouncils_23',
+                pane: 'pane_RegionalAdministrativeBuildings_23',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/CityRegionalCouncils_23.svg',
+            iconUrl: 'markers/RegionalAdministrativeBuildings_23.svg',
             iconSize: [72.96, 72.96]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_CityRegionalCouncils_23');
-        map.getPane('pane_CityRegionalCouncils_23').style.zIndex = 423;
-        map.getPane('pane_CityRegionalCouncils_23').style['mix-blend-mode'] = 'normal';
-        var layer_CityRegionalCouncils_23 = new L.geoJson(json_CityRegionalCouncils_23, {
+        map.createPane('pane_RegionalAdministrativeBuildings_23');
+        map.getPane('pane_RegionalAdministrativeBuildings_23').style.zIndex = 423;
+        map.getPane('pane_RegionalAdministrativeBuildings_23').style['mix-blend-mode'] = 'normal';
+        var layer_RegionalAdministrativeBuildings_23 = new L.geoJson(json_RegionalAdministrativeBuildings_23, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_CityRegionalCouncils_23',
-            layerName: 'layer_CityRegionalCouncils_23',
-            pane: 'pane_CityRegionalCouncils_23',
-            onEachFeature: pop_CityRegionalCouncils_23,
+            dataVar: 'json_RegionalAdministrativeBuildings_23',
+            layerName: 'layer_RegionalAdministrativeBuildings_23',
+            pane: 'pane_RegionalAdministrativeBuildings_23',
+            onEachFeature: pop_RegionalAdministrativeBuildings_23,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_CityRegionalCouncils_23_0(feature));
+                return L.marker(latlng, style_RegionalAdministrativeBuildings_23_0(feature));
             },
         });
-        bounds_group.addLayer(layer_CityRegionalCouncils_23);
-        map.addLayer(layer_CityRegionalCouncils_23);
+        bounds_group.addLayer(layer_RegionalAdministrativeBuildings_23);
+        map.addLayer(layer_RegionalAdministrativeBuildings_23);
         function pop_University_24(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -2725,102 +2750,7 @@
             style: style_Grid_50_0,
         });
         bounds_group.addLayer(layer_Grid_50);
-        function pop_ImpactZone_51(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <td colspan="2">' + (feature.properties['id'] !== null ? autolinker.link(String(feature.properties['id']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_ImpactZone_51_0() {
-            return {
-                pane: 'pane_ImpactZone_51',
-                opacity: 1,
-                color: 'rgba(35,35,35,0.5)',
-                dashArray: '',
-                lineCap: 'butt',
-                lineJoin: 'miter',
-                weight: 1.0, 
-                fill: true,
-                fillOpacity: 1,
-                fillColor: 'rgba(196,60,57,0.5)',
-                interactive: false,
-            }
-        }
-        map.createPane('pane_ImpactZone_51');
-        map.getPane('pane_ImpactZone_51').style.zIndex = 451;
-        map.getPane('pane_ImpactZone_51').style['mix-blend-mode'] = 'normal';
-        var layer_ImpactZone_51 = new L.geoJson(json_ImpactZone_51, {
-            attribution: '',
-            interactive: false,
-            dataVar: 'json_ImpactZone_51',
-            layerName: 'layer_ImpactZone_51',
-            pane: 'pane_ImpactZone_51',
-            onEachFeature: pop_ImpactZone_51,
-            style: style_ImpactZone_51_0,
-        });
-        bounds_group.addLayer(layer_ImpactZone_51);
-        map.addLayer(layer_ImpactZone_51);
-        function pop_WarningsEmergencies_52(feature, layer) {
-            var popupContent = '<table>\
-                    <tr>\
-                        <th scope="row">Name</th>\
-                        <td>' + (feature.properties['Name'] !== null ? autolinker.link(String(feature.properties['Name']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                    <tr>\
-                        <th scope="row">Type</th>\
-                        <td>' + (feature.properties['Type'] !== null ? autolinker.link(String(feature.properties['Type']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
-                    </tr>\
-                </table>';
-            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
-			layer.on('popupopen', function(e) {
-				addClassToPopupIfMedia(content, e.popup);
-			});
-			layer.bindPopup(content, { maxHeight: 400 });
-        }
-
-        function style_WarningsEmergencies_52_0() {
-            return {
-                pane: 'pane_WarningsEmergencies_52',
-        rotationAngle: 0.0,
-        rotationOrigin: 'center center',
-        icon: L.icon({
-            iconUrl: 'markers/WarningsEmergencies_52.svg',
-            iconSize: [114.75999999999999, 114.75999999999999]
-        }),
-                interactive: true,
-            }
-        }
-        map.createPane('pane_WarningsEmergencies_52');
-        map.getPane('pane_WarningsEmergencies_52').style.zIndex = 452;
-        map.getPane('pane_WarningsEmergencies_52').style['mix-blend-mode'] = 'normal';
-        var layer_WarningsEmergencies_52 = new L.geoJson(json_WarningsEmergencies_52, {
-            attribution: '',
-            interactive: true,
-            dataVar: 'json_WarningsEmergencies_52',
-            layerName: 'layer_WarningsEmergencies_52',
-            pane: 'pane_WarningsEmergencies_52',
-            onEachFeature: pop_WarningsEmergencies_52,
-            pointToLayer: function (feature, latlng) {
-                var context = {
-                    feature: feature,
-                    variables: {}
-                };
-                return L.marker(latlng, style_WarningsEmergencies_52_0(feature));
-            },
-        });
-        bounds_group.addLayer(layer_WarningsEmergencies_52);
-        map.addLayer(layer_WarningsEmergencies_52);
         var overlaysTree = [
-        {label: '<b>Emergencies</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/WarningsEmergencies_52.png" /> Warnings & Emergencies', layer: layer_WarningsEmergencies_52},
-            {label: '<img src="legend/ImpactZone_51.png" /> Impact Zone', layer: layer_ImpactZone_51},]},
         {label: '<b>Map Overlays</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/Grid_50.png" /> Grid', layer: layer_Grid_50},
             {label: '<img src="legend/Regions_49.png" /> Regions', layer: layer_Regions_49},
@@ -2856,7 +2786,7 @@
             {label: '<img src="legend/Museums_26.png" /> Museums', layer: layer_Museums_26},
             {label: '<img src="legend/Library_25.png" /> Library', layer: layer_Library_25},
             {label: '<img src="legend/University_24.png" /> University', layer: layer_University_24},
-            {label: '<img src="legend/CityRegionalCouncils_23.png" /> City & Regional Councils', layer: layer_CityRegionalCouncils_23},
+            {label: '<img src="legend/RegionalAdministrativeBuildings_23.png" /> Regional Administrative Buildings', layer: layer_RegionalAdministrativeBuildings_23},
             {label: '<img src="legend/ParksRecreation_22.png" /> Parks & Recreation', layer: layer_ParksRecreation_22},]},
         {label: '<b>Transportation</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/NationalBridges_21.png" /> National Bridges', layer: layer_NationalBridges_21},
@@ -2966,6 +2896,6 @@
         map.on("layerremove", function(){
             resetLabels([layer_MetroAreas_12,layer_Regions_49]);
         });
-        </script>
+        </script>        
     </body>
 </html>
