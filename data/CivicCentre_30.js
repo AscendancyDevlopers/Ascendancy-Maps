@@ -1,0 +1,1 @@
+var json_CivicCentre_30 = {"type":"FeatureCollection","name":"CivicCentre_30","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Name":"Stella City Civic Centre","Condition":"Excellent"},"geometry":{"type":"Point","coordinates":[0.034875203943625,-0.004991749749292]}}]}
