@@ -1,1 +1,1 @@
-var json_FreightDepot_32 = {"type":"FeatureCollection","name":"FreightDepot_32","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[]}
+var json_FreightDepot_32 = {"type":"FeatureCollection","name":"FreightDepot_32","crs":{"type":"name","properties":{"name":"urn:ogc:def:crs:OGC:1.3:CRS84"}},"features":[{"type":"Feature","properties":{"id":"1","Name":"Razzan Depot","Condition":"Excellent","Authority":"Novum Centrum Regional Governor"},"geometry":{"type":"Point","coordinates":[0.013521054655919,-0.006679529669956]}}]}
