@@ -88,15 +88,16 @@
         <script src="data/EmergencyCommunicationsCentres_50.js"></script>
         <script src="data/FireStations_51.js"></script>
         <script src="data/Hospitals_52.js"></script>
-        <script src="data/RegionBoundaries_53.js"></script>
-        <script src="data/Grid_54.js"></script>
-        <script src="data/FaultLines_55.js"></script>
-        <script src="data/FloodZones_56.js"></script>
-        <script src="data/Debris_57.js"></script>
+        <script src="data/MiningLeases_53.js"></script>
+        <script src="data/RegionBoundaries_54.js"></script>
+        <script src="data/Grid_55.js"></script>
+        <script src="data/FaultLines_56.js"></script>
+        <script src="data/FloodZones_57.js"></script>
+        <script src="data/Debris_58.js"></script>
         <script>
         var map = L.map('map', {
             zoomControl:false, maxZoom:26, minZoom:15
-        }).fitBounds([[-0.018422558215281028,0.003441044280513103],[0.001369244271759368,0.039127986499152084]]);
+        }).fitBounds([[-0.021144885314209192,-0.0013226407283144096],[0.003696366780278655,0.043665454489925065]]);
         var hash = new L.Hash(map);
         map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
         var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
@@ -2745,7 +2746,6 @@
             },
         });
         bounds_group.addLayer(layer_EmergencyCommunicationsCentres_50);
-        map.addLayer(layer_EmergencyCommunicationsCentres_50);
         function pop_FireStations_51(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
@@ -2850,7 +2850,49 @@
         });
         bounds_group.addLayer(layer_Hospitals_52);
         map.addLayer(layer_Hospitals_52);
-        function pop_RegionBoundaries_53(feature, layer) {
+        function pop_MiningLeases_53(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <th scope="row">Ownership</th>\
+                        <td class="visible-with-data" id="Ownership">' + (feature.properties['Ownership'] !== null ? autolinker.link(String(feature.properties['Ownership']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            var content = removeEmptyRowsFromPopupContent(popupContent, feature);
+			layer.on('popupopen', function(e) {
+				addClassToPopupIfMedia(content, e.popup);
+			});
+			layer.bindPopup(content, { maxHeight: 400 });
+        }
+
+        function style_MiningLeases_53_0() {
+            return {
+                pane: 'pane_MiningLeases_53',
+                opacity: 1,
+                color: 'rgba(35,35,35,0.35)',
+                dashArray: '',
+                lineCap: 'butt',
+                lineJoin: 'miter',
+                weight: 1.0, 
+                fill: true,
+                fillOpacity: 1,
+                fillColor: 'rgba(114,155,111,0.35)',
+                interactive: true,
+            }
+        }
+        map.createPane('pane_MiningLeases_53');
+        map.getPane('pane_MiningLeases_53').style.zIndex = 453;
+        map.getPane('pane_MiningLeases_53').style['mix-blend-mode'] = 'normal';
+        var layer_MiningLeases_53 = new L.geoJson(json_MiningLeases_53, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_MiningLeases_53',
+            layerName: 'layer_MiningLeases_53',
+            pane: 'pane_MiningLeases_53',
+            onEachFeature: pop_MiningLeases_53,
+            style: style_MiningLeases_53_0,
+        });
+        bounds_group.addLayer(layer_MiningLeases_53);
+        function pop_RegionBoundaries_54(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
@@ -2868,9 +2910,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_RegionBoundaries_53_0() {
+        function style_RegionBoundaries_54_0() {
             return {
-                pane: 'pane_RegionBoundaries_53',
+                pane: 'pane_RegionBoundaries_54',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '5.0,1.0',
@@ -2883,20 +2925,20 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_RegionBoundaries_53');
-        map.getPane('pane_RegionBoundaries_53').style.zIndex = 453;
-        map.getPane('pane_RegionBoundaries_53').style['mix-blend-mode'] = 'normal';
-        var layer_RegionBoundaries_53 = new L.geoJson(json_RegionBoundaries_53, {
+        map.createPane('pane_RegionBoundaries_54');
+        map.getPane('pane_RegionBoundaries_54').style.zIndex = 454;
+        map.getPane('pane_RegionBoundaries_54').style['mix-blend-mode'] = 'normal';
+        var layer_RegionBoundaries_54 = new L.geoJson(json_RegionBoundaries_54, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_RegionBoundaries_53',
-            layerName: 'layer_RegionBoundaries_53',
-            pane: 'pane_RegionBoundaries_53',
-            onEachFeature: pop_RegionBoundaries_53,
-            style: style_RegionBoundaries_53_0,
+            dataVar: 'json_RegionBoundaries_54',
+            layerName: 'layer_RegionBoundaries_54',
+            pane: 'pane_RegionBoundaries_54',
+            onEachFeature: pop_RegionBoundaries_54,
+            style: style_RegionBoundaries_54_0,
         });
-        bounds_group.addLayer(layer_RegionBoundaries_53);
-        function pop_Grid_54(feature, layer) {
+        bounds_group.addLayer(layer_RegionBoundaries_54);
+        function pop_Grid_55(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(String(feature.properties['fid']).replace(/'/g, '\'').toLocaleString()) : '') + '</td>\
@@ -2924,9 +2966,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Grid_54_0() {
+        function style_Grid_55_0() {
             return {
-                pane: 'pane_Grid_54',
+                pane: 'pane_Grid_55',
                 opacity: 1,
                 color: 'rgba(0,0,0,0.45098039215686275)',
                 dashArray: '',
@@ -2937,20 +2979,20 @@
                 interactive: false,
             }
         }
-        map.createPane('pane_Grid_54');
-        map.getPane('pane_Grid_54').style.zIndex = 454;
-        map.getPane('pane_Grid_54').style['mix-blend-mode'] = 'normal';
-        var layer_Grid_54 = new L.geoJson(json_Grid_54, {
+        map.createPane('pane_Grid_55');
+        map.getPane('pane_Grid_55').style.zIndex = 455;
+        map.getPane('pane_Grid_55').style['mix-blend-mode'] = 'normal';
+        var layer_Grid_55 = new L.geoJson(json_Grid_55, {
             attribution: '',
             interactive: false,
-            dataVar: 'json_Grid_54',
-            layerName: 'layer_Grid_54',
-            pane: 'pane_Grid_54',
-            onEachFeature: pop_Grid_54,
-            style: style_Grid_54_0,
+            dataVar: 'json_Grid_55',
+            layerName: 'layer_Grid_55',
+            pane: 'pane_Grid_55',
+            onEachFeature: pop_Grid_55,
+            style: style_Grid_55_0,
         });
-        bounds_group.addLayer(layer_Grid_54);
-        function pop_FaultLines_55(feature, layer) {
+        bounds_group.addLayer(layer_Grid_55);
+        function pop_FaultLines_56(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
@@ -2964,9 +3006,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_FaultLines_55_0() {
+        function style_FaultLines_56_0() {
             return {
-                pane: 'pane_FaultLines_55',
+                pane: 'pane_FaultLines_56',
                 opacity: 1,
                 color: 'rgba(186,0,6,1.0)',
                 dashArray: '',
@@ -2977,20 +3019,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_FaultLines_55');
-        map.getPane('pane_FaultLines_55').style.zIndex = 455;
-        map.getPane('pane_FaultLines_55').style['mix-blend-mode'] = 'normal';
-        var layer_FaultLines_55 = new L.geoJson(json_FaultLines_55, {
+        map.createPane('pane_FaultLines_56');
+        map.getPane('pane_FaultLines_56').style.zIndex = 456;
+        map.getPane('pane_FaultLines_56').style['mix-blend-mode'] = 'normal';
+        var layer_FaultLines_56 = new L.geoJson(json_FaultLines_56, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FaultLines_55',
-            layerName: 'layer_FaultLines_55',
-            pane: 'pane_FaultLines_55',
-            onEachFeature: pop_FaultLines_55,
-            style: style_FaultLines_55_0,
+            dataVar: 'json_FaultLines_56',
+            layerName: 'layer_FaultLines_56',
+            pane: 'pane_FaultLines_56',
+            onEachFeature: pop_FaultLines_56,
+            style: style_FaultLines_56_0,
         });
-        bounds_group.addLayer(layer_FaultLines_55);
-        function pop_FloodZones_56(feature, layer) {
+        bounds_group.addLayer(layer_FaultLines_56);
+        function pop_FloodZones_57(feature, layer) {
             var popupContent = '<table>\
                 </table>';
             var content = removeEmptyRowsFromPopupContent(popupContent, feature);
@@ -3000,9 +3042,9 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_FloodZones_56_0() {
+        function style_FloodZones_57_0() {
             return {
-                pane: 'pane_FloodZones_56',
+                pane: 'pane_FloodZones_57',
                 opacity: 1,
                 color: 'rgba(35,35,35,1.0)',
                 dashArray: '',
@@ -3015,20 +3057,20 @@
                 interactive: true,
             }
         }
-        map.createPane('pane_FloodZones_56');
-        map.getPane('pane_FloodZones_56').style.zIndex = 456;
-        map.getPane('pane_FloodZones_56').style['mix-blend-mode'] = 'normal';
-        var layer_FloodZones_56 = new L.geoJson(json_FloodZones_56, {
+        map.createPane('pane_FloodZones_57');
+        map.getPane('pane_FloodZones_57').style.zIndex = 457;
+        map.getPane('pane_FloodZones_57').style['mix-blend-mode'] = 'normal';
+        var layer_FloodZones_57 = new L.geoJson(json_FloodZones_57, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_FloodZones_56',
-            layerName: 'layer_FloodZones_56',
-            pane: 'pane_FloodZones_56',
-            onEachFeature: pop_FloodZones_56,
-            style: style_FloodZones_56_0,
+            dataVar: 'json_FloodZones_57',
+            layerName: 'layer_FloodZones_57',
+            pane: 'pane_FloodZones_57',
+            onEachFeature: pop_FloodZones_57,
+            style: style_FloodZones_57_0,
         });
-        bounds_group.addLayer(layer_FloodZones_56);
-        function pop_Debris_57(feature, layer) {
+        bounds_group.addLayer(layer_FloodZones_57);
+        function pop_Debris_58(feature, layer) {
             var popupContent = '<table>\
                     <tr>\
                         <th scope="row">Name</th>\
@@ -3042,44 +3084,45 @@
 			layer.bindPopup(content, { maxHeight: 400 });
         }
 
-        function style_Debris_57_0() {
+        function style_Debris_58_0() {
             return {
-                pane: 'pane_Debris_57',
+                pane: 'pane_Debris_58',
         rotationAngle: 0.0,
         rotationOrigin: 'center center',
         icon: L.icon({
-            iconUrl: 'markers/Debris_57.svg',
+            iconUrl: 'markers/Debris_58.svg',
             iconSize: [28.88, 28.88]
         }),
                 interactive: true,
             }
         }
-        map.createPane('pane_Debris_57');
-        map.getPane('pane_Debris_57').style.zIndex = 457;
-        map.getPane('pane_Debris_57').style['mix-blend-mode'] = 'normal';
-        var layer_Debris_57 = new L.geoJson(json_Debris_57, {
+        map.createPane('pane_Debris_58');
+        map.getPane('pane_Debris_58').style.zIndex = 458;
+        map.getPane('pane_Debris_58').style['mix-blend-mode'] = 'normal';
+        var layer_Debris_58 = new L.geoJson(json_Debris_58, {
             attribution: '',
             interactive: true,
-            dataVar: 'json_Debris_57',
-            layerName: 'layer_Debris_57',
-            pane: 'pane_Debris_57',
-            onEachFeature: pop_Debris_57,
+            dataVar: 'json_Debris_58',
+            layerName: 'layer_Debris_58',
+            pane: 'pane_Debris_58',
+            onEachFeature: pop_Debris_58,
             pointToLayer: function (feature, latlng) {
                 var context = {
                     feature: feature,
                     variables: {}
                 };
-                return L.marker(latlng, style_Debris_57_0(feature));
+                return L.marker(latlng, style_Debris_58_0(feature));
             },
         });
-        bounds_group.addLayer(layer_Debris_57);
+        bounds_group.addLayer(layer_Debris_58);
         var overlaysTree = [
         {label: '<b>Map Overlays</b>',  selectAllCheckbox: true, children: [
-            {label: '<img src="legend/Debris_57.png" /> Debris', layer: layer_Debris_57},
-            {label: '<img src="legend/FloodZones_56.png" /> Flood Zones', layer: layer_FloodZones_56},
-            {label: '<img src="legend/FaultLines_55.png" /> Fault Lines', layer: layer_FaultLines_55},
-            {label: '<img src="legend/Grid_54.png" /> Grid', layer: layer_Grid_54},
-            {label: '<img src="legend/RegionBoundaries_53.png" /> Region Boundaries', layer: layer_RegionBoundaries_53},]},
+            {label: '<img src="legend/Debris_58.png" /> Debris', layer: layer_Debris_58},
+            {label: '<img src="legend/FloodZones_57.png" /> Flood Zones', layer: layer_FloodZones_57},
+            {label: '<img src="legend/FaultLines_56.png" /> Fault Lines', layer: layer_FaultLines_56},
+            {label: '<img src="legend/Grid_55.png" /> Grid', layer: layer_Grid_55},
+            {label: '<img src="legend/RegionBoundaries_54.png" /> Region Boundaries', layer: layer_RegionBoundaries_54},
+            {label: '<img src="legend/MiningLeases_53.png" /> Mining Leases', layer: layer_MiningLeases_53},]},
         {label: '<b>Office of Public Health</b>',  selectAllCheckbox: true, children: [
             {label: '<img src="legend/Hospitals_52.png" /> Hospitals', layer: layer_Hospitals_52},]},
         {label: '<b>Office of Emergency Services</b>',  selectAllCheckbox: true, children: [
@@ -3204,27 +3247,27 @@
         });       
         setBounds();
         var i = 0;
-        layer_RegionBoundaries_53.eachLayer(function(layer) {
+        layer_RegionBoundaries_54.eachLayer(function(layer) {
             var context = {
                 feature: layer.feature,
                 variables: {}
             };
-            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Reference Sans Serif\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_RegionBoundaries_53'});
+            layer.bindTooltip((layer.feature.properties['Name'] !== null?String('<div style="color: #000000; font-size: 10pt; font-family: \'MS Reference Sans Serif\', sans-serif;">' + layer.feature.properties['Name']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_RegionBoundaries_54'});
             labels.push(layer);
             totalMarkers += 1;
               layer.added = true;
               addLabel(layer, i);
               i++;
         });
-        resetLabels([layer_MetroAreas_14,layer_RegionBoundaries_53]);
+        resetLabels([layer_MetroAreas_14,layer_RegionBoundaries_54]);
         map.on("zoomend", function(){
-            resetLabels([layer_MetroAreas_14,layer_RegionBoundaries_53]);
+            resetLabels([layer_MetroAreas_14,layer_RegionBoundaries_54]);
         });
         map.on("layeradd", function(){
-            resetLabels([layer_MetroAreas_14,layer_RegionBoundaries_53]);
+            resetLabels([layer_MetroAreas_14,layer_RegionBoundaries_54]);
         });
         map.on("layerremove", function(){
-            resetLabels([layer_MetroAreas_14,layer_RegionBoundaries_53]);
+            resetLabels([layer_MetroAreas_14,layer_RegionBoundaries_54]);
         });
         </script>        
     </body>
